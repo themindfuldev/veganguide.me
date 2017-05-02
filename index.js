@@ -3,10 +3,9 @@ var collections     = require('metalsmith-collections');
 var layouts         = require('metalsmith-layouts');
 var markdown        = require('metalsmith-markdown');
 var permalinks      = require('metalsmith-permalinks');
-var googleAnalytics = require('metalsmith-google-analytics');
+var googleAnalytics = require('metalsmith-google-analytics').default;
 var serve           = require('metalsmith-serve');
 var watch           = require('metalsmith-watch');
-
 
 Metalsmith(__dirname)         // __dirname defined by node.js:
                               // name of current working directory
@@ -20,7 +19,7 @@ Metalsmith(__dirname)         // __dirname defined by node.js:
   .destination('./public')     // destination directory
   .clean(true)                // clean destination before
   .use(collections({          // group all blog posts by internally
-    posts: './source/_posts/*.md',
+    posts: 'source/_posts/*.md',
     sortBy: 'date',
     reverse: true
   }))                         // use `collections.posts` in layouts
@@ -30,7 +29,7 @@ Metalsmith(__dirname)         // __dirname defined by node.js:
   }))
   .use(layouts({              // wrap layouts around html
     engine: 'handlebars',     // use the layout engine you like
-    directory: './source/_layouts'
+    directory: 'source/_layouts'
   }))
   //.use(googleAnalytics('UA-98418104-1'))
   .use(serve({
