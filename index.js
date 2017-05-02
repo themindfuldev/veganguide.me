@@ -1,10 +1,12 @@
 var Metalsmith      = require('metalsmith');
 var collections     = require('metalsmith-collections');
-var templates         = require('metalsmith-templates');
+var templates       = require('metalsmith-templates');
+var discoverPartials = require('metalsmith-discover-partials')
 var markdown        = require('metalsmith-markdown');
 var permalinks      = require('metalsmith-permalinks');
 var serve           = require('metalsmith-serve');
 var watch           = require('metalsmith-watch');
+
 
 Metalsmith(__dirname)         // __dirname defined by node.js:
                               // name of current working directory
@@ -27,8 +29,11 @@ Metalsmith(__dirname)         // __dirname defined by node.js:
   .use(permalinks({           // change URLs to permalink URLs
     relative: false           // put css only in /css
   }))
-  .use(templates({              // wrap layouts around html
-    engine: 'handlebars',     // use the layout engine you like
+  .use(discoverPartials({
+    directory: 'source/_partials'
+  }))
+  .use(templates({
+    engine: 'handlebars',
     directory: 'source/_layouts'
   }))
   .use(serve({
