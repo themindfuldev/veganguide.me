@@ -1,4 +1,3 @@
 ---
 template: default.html
 ---
-INDEX
