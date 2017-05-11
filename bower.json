@@ -1,0 +1,19 @@
+{
+  "name": "veganguide.me-source",
+  "description": "veganguide.me source code",
+  "main": "index.js",
+  "license": "ISC",
+  "homepage": "https://github.com/tiagorg/veganguide.me-source",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "source/assets/vendors/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^2.0.0-rc.7"
+  }
+}
