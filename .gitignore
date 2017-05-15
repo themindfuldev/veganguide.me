@@ -1,3 +1,4 @@
 node_modules
 public
 source/assets/vendors
+.DS_Store

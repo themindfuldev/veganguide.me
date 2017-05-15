@@ -1,21 +1,45 @@
 <dom-module id="vegan-search">
-  <template>
+  <template>    
+    <link type="text/css" rel="stylesheet" href="https://use.fontawesome.com/ac44d0f306.css">
     <style>
-    .box{
-      color: grey;
-    }
+      form {
+        position: relative;
+      }
+
+      .search-input {
+        outline: 0;
+        box-sizing: border-box;
+        width: 100%;
+        border: 2px solid #68EA77;
+        border-radius: 5px;
+        padding: 12px 12px 12px 50px;
+        font-size: 16px;
+        color: #333;
+      }
+
+      .search-icon {
+        position: absolute;
+        top: 8px;
+        left: 12px;
+        color: #757575;
+        font-size: 1.5em;
+      }
     </style>
-    <div class="box">{{mybinding}}</div>
-    </template>
-    <script>
-      Polymer({
-        is: "vegan-search",
-        properties: {
-          mybinding: {
-            type: String,
-            value: "My text here"
-          }
+    <form>      
+      <div class="search-icon"><i class="fa fa-search" aria-hidden="true"></i></div>
+      <input class="search-input" type="search" role="search" title="{{placeholder}}" autocomplete="off" placeholder="{{placeholder}}" aria-label="{{placeholder}}" />
+    </form>
+    
+  </template>
+  <script>
+    Polymer({
+      is: "vegan-search",
+      properties: {
+        placeholder: {
+          type: String,
+          value: "Find the goodness..."
         }
-      });
-    </script>
+      }
+    });
+  </script>
 </dom-module>

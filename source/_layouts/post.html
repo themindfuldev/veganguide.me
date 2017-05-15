@@ -6,9 +6,11 @@
 <body>
   {{> header }}
 
-  <h1>{{ title }}</h1>
-  <time>{{ date }}</time>
-  {{{ contents  }}}
+  <section class="content">
+    <h1>{{ title }}</h1>
+    <time>{{ date }}</time>
+    {{{ contents  }}}
+  </section>
 
   {{> footer }}
   {{> googleAnalytics }}
