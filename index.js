@@ -1,12 +1,31 @@
-var Metalsmith   = require('metalsmith');
-var collections  = require('metalsmith-collections');
-var markdown     = require('metalsmith-markdown');
-var permalinks   = require('metalsmith-permalinks');
-var assets       = require('metalsmith-assets');
-var partials     = require('metalsmith-discover-partials')
-var templates    = require('metalsmith-templates');
-var serve        = require('metalsmith-serve');
-var watch        = require('metalsmith-watch');
+const Metalsmith   = require('metalsmith');
+const collections  = require('metalsmith-collections');
+const markdown     = require('metalsmith-markdown');
+const permalinks   = require('metalsmith-permalinks');
+const assets       = require('metalsmith-assets');
+const partials     = require('metalsmith-discover-partials')
+const templates    = require('metalsmith-templates');
+const serve        = require('metalsmith-serve');
+const watch        = require('metalsmith-watch');
+const console      = require('console');
+const exec         = require('child_process').exec;
+const fs           = require('fs-extra');
+
+const buildPolymer = () => {
+  console.log('building polymer...');
+  exec("cd public; polymer build --js-compile", (error, stdout, stderr) => {
+    if (error) {
+      console.error(`exec error: ${error}`);
+      return;
+    }
+    console.log(`${stdout}`);
+
+    fs.moveSync('public/build/default/components', 'public/components', { overwrite: true });
+    fs.moveSync('public/build/default/vendors/polymer', 'public/vendors/polymer', { overwrite: true });
+    fs.removeSync('public/build');
+    console.log('Site build complete!');
+  });
+};
 
 Metalsmith(__dirname)
   .metadata({
@@ -31,7 +50,7 @@ Metalsmith(__dirname)
     source: './source/assets',
     destination: './'
   }))  
-  .use(partials   ({
+  .use(partials({
     directory: 'source/_partials'
   }))
   .use(templates({
@@ -46,11 +65,11 @@ Metalsmith(__dirname)
     pattern: '**/*',
     livereload: true
   }))
-  .build(function(err) {
+  .build(err => {
     if (err) {
       console.log(err);
     }
     else {
-      console.log('Site build complete!');
+      buildPolymer();
     }
   });
