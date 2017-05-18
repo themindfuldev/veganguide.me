@@ -4,38 +4,40 @@
   <template>    
     <link type="text/css" rel="stylesheet" href="https://use.fontawesome.com/ac44d0f306.css">
     <style>
-      /* GRID */
+      /* FLEX SETUP */
       header {
-        display: grid;
-        grid-template-columns: 2fr 3fr 3fr;
-        grid-template-rows: 1fr 1fr;
-        max-width: 1024px;
+        display: flex;
+        justify-content: space-between;
+        max-width: 960px;
         margin: 20px auto 30px;
       }
 
       header .logo {
-        grid-column: 1;
-        grid-row: 1 / 3;
-        align-self: center;	
+        flex: initial;
+      }
+
+      header .header-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        max-width: 640px;
       }
 
       header .links {
-        grid-column: 2;
-        grid-row: 1;
-        align-self: end;
+        flex: initial;
+        align-self: flex-end;
       }
 
       header .categories {
-        grid-column: 3;
-        grid-row: 1;
-        align-self: end;
-        justify-self: end;
+        flex: 1;
+        align-self: flex-end;
+        text-align: right;
       }
 
       header .search {
-        grid-column: 2 / 4;
-        grid-row: 2;
-        align-self: end;
+        flex: initial;
+        align-self: flex-end;
+        width: 100%;
       }
 
       /* LOGO */
@@ -162,22 +164,24 @@
       <div class="logo">
         <a href="/"><img src="/images/logo.png" alt="VeganGuide.Me" title="VeganGuide.Me" /></a>
       </div>
-      <nav class="links">
-        <a class="about" href="/about/">ABOUT</a> |
-        <a class="vegan-brands" href="/vegan-brands/">VEGAN BRANDS</a> |
-        <a class="documentaries" href="/documentaries/">DOCUMENTARIES</a>
-      </nav>
-      <nav class="categories">
-        <a class="apparel" href="/apparel/" aria-label="Apparel" data-tooltip="Apparel"><i class="fa fa-female fa-2x" aria-hidden="true"></i></a>
-        <a class="beauty" href="/beauty/" aria-label="Beauty" data-tooltip="Beauty"><i class="fa fa-heart fa-2x" aria-hidden="true"></i></a>
-        <a class="personal-care" href="/personal-care/" aria-label="Personal Care" data-tooltip="Personal Care"><i class="fa fa-bath fa-2x" aria-hidden="true"></i></a>
-        <a class="home" href="/home/" aria-label="Home" data-tooltip="Home"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
-        <a class="eating" href="/eating/" aria-label="Eating" data-tooltip="Eating"><i class="fa fa-cutlery fa-2x" aria-hidden="true"></i></a>
-        <a class="drinking" href="/drinking/" aria-label="Drinking" data-tooltip="Drinking"><i class="fa fa-glass fa-2x" aria-hidden="true"></i></a>
-        <a class="tips" href="/tips/" aria-label="Tips" data-tooltip="Tips"><i class="fa fa-thumbs-up fa-2x" aria-hidden="true"></i></a>
-      </nav>
-      <div class="search">
-        <vegan-search></vegan-search>
+      <div class="header-content">
+        <nav class="links">
+          <a class="about" href="/about/">ABOUT</a> |
+          <a class="vegan-brands" href="/vegan-brands/">VEGAN BRANDS</a> |
+          <a class="documentaries" href="/documentaries/">DOCUMENTARIES</a>
+        </nav>
+        <nav class="categories">
+          <a class="apparel" href="/apparel/" aria-label="Apparel" data-tooltip="Apparel"><i class="fa fa-female fa-2x" aria-hidden="true"></i></a>
+          <a class="beauty" href="/beauty/" aria-label="Beauty" data-tooltip="Beauty"><i class="fa fa-heart fa-2x" aria-hidden="true"></i></a>
+          <a class="personal-care" href="/personal-care/" aria-label="Personal Care" data-tooltip="Personal Care"><i class="fa fa-bath fa-2x" aria-hidden="true"></i></a>
+          <a class="home" href="/home/" aria-label="Home" data-tooltip="Home"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
+          <a class="eating" href="/eating/" aria-label="Eating" data-tooltip="Eating"><i class="fa fa-cutlery fa-2x" aria-hidden="true"></i></a>
+          <a class="drinking" href="/drinking/" aria-label="Drinking" data-tooltip="Drinking"><i class="fa fa-glass fa-2x" aria-hidden="true"></i></a>
+          <a class="tips" href="/tips/" aria-label="Tips" data-tooltip="Tips"><i class="fa fa-thumbs-up fa-2x" aria-hidden="true"></i></a>
+        </nav>
+        <div class="search">
+          <vegan-search></vegan-search>
+        </div>
       </div>
     </header>
     
