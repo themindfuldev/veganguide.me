@@ -15,14 +15,25 @@
         padding: 12px 12px 12px 50px;
         font-size: 16px;
         color: #333;
+
+        -moz-appearance: none;/* older firefox */
+        -webkit-appearance: none; /* safari, chrome */
+        appearance: none; /* rest */
+      }
+
+      .search-input::-webkit-search-cancel-button {
+        display: none;
       }
 
       .search-icon {
         position: absolute;
-        top: 8px;
         left: 12px;
         color: #757575;
         font-size: 1.5em;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
     </style>
     <form>      

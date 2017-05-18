@@ -1,0 +1,58 @@
+<dom-module id="vegan-footer">
+  <template>    
+    <link type="text/css" rel="stylesheet" href="https://use.fontawesome.com/ac44d0f306.css">
+    <style>
+      footer {
+        width: 100%;
+        background: #D5D3D3;
+        height: 200px;
+      }
+
+      .content {
+        max-width: 960px;
+        margin: 30px auto 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+        font-size: 20px;
+        color: #232322;
+      }
+
+      .social-media {
+        text-align: center;
+      }
+
+      .social-media hr {
+        border: solid 1px #232322;
+      }
+
+      .social-media a {
+        margin: 0 10px;
+        color: #232322;
+      }
+    </style>
+
+    <footer>
+      <div class="content">
+        <div class="credits">
+          © 2017 My Vegan Guide.<br/>
+          Powered by love.
+        </div>
+
+        <div class="social-media">
+          GET IN TOUCH<br/><hr/>
+          <a href="https://twitter.com/veganguideme"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></a>
+          <a href="https://facebook.com/veganguideme"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></a>
+          <a href="https://instagram.com/veganguideme"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </footer>
+    
+  </template>
+  <script>
+    Polymer({
+      is: "vegan-footer"
+    });
+  </script>
+</dom-module>
