@@ -1,0 +1,63 @@
+<link rel="import" href="../vendors/polymer/polymer-element.html">
+
+<dom-module id="vegan-home">
+  <template>    
+    <link type="text/css" rel="stylesheet" href="https://use.fontawesome.com/ac44d0f306.css">
+    <style>
+      section {
+        max-width: 960px;
+        margin: 30px auto 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+        font-size: 20px;
+        color: #232322;
+      }      
+
+      .column {
+        flex: 1;
+        padding: 20px;
+      }
+
+      i.fa {
+        color: #88BF30
+      }
+    </style>
+
+    <section>      
+      <div class="column">
+        <i class="fa fa-leaf fa-3x" aria-hidden="true"></i>
+        <h3>Why vegan</h3>
+        <div>          
+Chambray Carles Terry Gibson balls plaid wolf. Disrupt fashion axe 90's quinoa +1 Neutra.
+Irony ethnic ennui McSweeney's, semiotics small batch squid direct trade. Readymade salvia Echo Park scenester.
+Farm-to-table selvage small batch swag asymmetrical whatever, tattooed American Apparel meh viral wolf tofu trust fund.
+        </div>
+      </div>
+
+      <div class="column">
+        <i class="fa fa-cart-plus fa-3x" aria-hidden="true"></i>
+        <h3>How to shop vegan</h3>
+        <div>          
+Chambray Carles Terry Gibson balls plaid wolf. Disrupt fashion axe 90's quinoa +1 Neutra.
+Irony ethnic ennui McSweeney's, semiotics small batch squid direct trade. Readymade salvia Echo Park scenester.
+Farm-to-table selvage small batch swag asymmetrical whatever, tattooed American Apparel meh viral wolf tofu trust fund.
+        </div>
+      </div>
+
+      <div class="column">
+        <i class="fa fa-bell fa-3x" aria-hidden="true"></i>
+        <h3>Latest posts</h3>
+        <slot name="latest-posts"></slot>
+      </div>
+    </section>
+    
+  </template>
+  <script>
+    class VeganHome extends Polymer.Element {
+      static get is() { return  'vegan-home' }
+    }
+    customElements.define(VeganHome.is, VeganHome);
+  </script>
+</dom-module>

@@ -1,3 +1,5 @@
+<link rel="import" href="../vendors/polymer/polymer-element.html">
+
 <dom-module id="vegan-footer">
   <template>    
     <link type="text/css" rel="stylesheet" href="https://use.fontawesome.com/ac44d0f306.css">
@@ -51,8 +53,9 @@
     
   </template>
   <script>
-    Polymer({
-      is: "vegan-footer"
-    });
+    class VeganFooter extends Polymer.Element {
+      static get is() { return  'vegan-footer' }
+    }
+    customElements.define(VeganFooter.is, VeganFooter);
   </script>
 </dom-module>

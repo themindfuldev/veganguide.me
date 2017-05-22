@@ -1,3 +1,5 @@
+<link rel="import" href="../vendors/polymer/polymer-element.html">
+
 <dom-module id="vegan-search">
   <template>    
     <link type="text/css" rel="stylesheet" href="https://use.fontawesome.com/ac44d0f306.css">
@@ -38,19 +40,29 @@
     </style>
     <form>      
       <div class="search-icon"><i class="fa fa-search" aria-hidden="true"></i></div>
-      <input class="search-input" type="search" role="search" autocomplete="off" placeholder="{{placeholder}}" aria-label="{{placeholder}}" />
+      <input class="search-input" type="search" role="search" autocomplete="off" placeholder="[[placeholder]]" aria-label="[[placeholder]]" />
     </form>
     
   </template>
   <script>
-    Polymer({
-      is: "vegan-search",
-      properties: {
-        placeholder: {
-          type: String,
-          value: "Find the goodness..."
+    class VeganSearch extends Polymer.Element {
+      static get is() { return  'vegan-search' }
+
+      static get properties() {
+        return {
+          placeholder: {
+            type: String, 
+            reflectToAttribute: true
+          }
         }
       }
-    });
+
+      constructor() {
+        super();
+        this.placeholder = 'Find the goodness...';
+      }
+
+    }
+    customElements.define(VeganSearch.is, VeganSearch);    
   </script>
 </dom-module>
