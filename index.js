@@ -22,6 +22,8 @@ const buildPolymer = () => {
 
     fs.moveSync('public/build/default/components', 'public/components', { overwrite: true });
     fs.moveSync('public/build/default/vendors/polymer', 'public/vendors/polymer', { overwrite: true });
+    fs.moveSync('public/build/default/vendors/l2t-paper-slider', 'public/vendors/l2t-paper-slider', { overwrite: true });
+    fs.moveSync('public/build/default/vendors/iron-a11y-keys-behavior', 'public/vendors/iron-a11y-keys-behavior', { overwrite: true });
     fs.removeSync('public/build');
     console.log('Site build complete!');
   });
