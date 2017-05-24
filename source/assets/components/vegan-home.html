@@ -35,6 +35,10 @@
         color: #88BF30
       }
 
+      i.fa-plus {
+        color: white;
+      }
+
       ::slotted(ul) {
         list-style-type: none;
         padding-left: 0;
@@ -43,29 +47,53 @@
 
     <section>      
       <div class="column">
-        <div class="icon"><i class="fa fa-leaf fa-3x" aria-hidden="true"></i></div>
+        <div class="icon">
+          <i class="fa fa-leaf fa-3x" aria-hidden="true"></i>
+        </div>
         <h2>Why vegan</h2>
         <p>          
 Chambray Carles Terry Gibson balls plaid wolf. Disrupt fashion axe 90's quinoa +1 Neutra.
 Irony ethnic ennui McSweeney's, semiotics small batch squid direct trade. Readymade salvia Echo Park scenester.
 Farm-to-table selvage small batch swag asymmetrical whatever, tattooed American Apparel meh viral wolf tofu trust fund.
         </p>
+        <div class="icon">
+          <span class="fa-stack fa-lg" aria-hidden="true">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-plus fa-stack-1x"></i>
+          </span>
+        </div>
       </div>
 
       <div class="column">
-        <div class="icon"><i class="fa fa-cart-plus fa-3x" aria-hidden="true"></i></div>
+        <div class="icon">
+          <i class="fa fa-cart-plus fa-3x" aria-hidden="true"></i>
+        </div>
         <h2>How to shop vegan</h2>
         <p>          
 Chambray Carles Terry Gibson balls plaid wolf. Disrupt fashion axe 90's quinoa +1 Neutra.
 Irony ethnic ennui McSweeney's, semiotics small batch squid direct trade. Readymade salvia Echo Park scenester.
 Farm-to-table selvage small batch swag asymmetrical whatever, tattooed American Apparel meh viral wolf tofu trust fund.
         </p>
+        <div class="icon">
+          <span class="fa-stack fa-lg" aria-hidden="true">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-plus fa-stack-1x"></i>
+          </span>
+        </div>
       </div>
 
       <div class="column">
-        <div class="icon"><i class="fa fa-bell fa-3x" aria-hidden="true"></i></div>
+        <div class="icon">
+          <i class="fa fa-bell fa-3x" aria-hidden="true"></i>
+        </div>
         <h2>Latest posts</h2>
         <slot name="latest-posts"></slot>
+        <div class="icon">
+          <span class="fa-stack fa-lg" aria-hidden="true">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-plus fa-stack-1x"></i>
+          </span>
+        </div>
       </div>
     </section>
     
