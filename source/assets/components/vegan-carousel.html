@@ -3,23 +3,44 @@
 <dom-module id="vegan-carousel">
   <template>        
     <style>
+      :host {
+        --carousel-height: 382px;
+      }
+
       section {        
         margin: 20px auto 30px;
+        position: relative;
       }
 
       l2t-paper-slider {
-        --paper-slide-height: 382px;        
+        --paper-slide-height: var(--carousel-height);        
       }
 
       paper-slide {
         text-align: center;
       }
 
-      paper-slide img {
+      img {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         position: relative;
+      }
+
+      div.single-image {
+        height: var(--carousel-height);
+        overflow: hidden;
+        display: none;
+      }
+
+      @media only screen and (max-width : 768px) {
+        l2t-paper-slider {
+          display: none;
+        }
+
+        div.single-image {
+          display: block;
+        }
       }
     </style>
 
@@ -29,6 +50,9 @@
         <paper-slide><img src="/images/banner02.png" draggable="false"/></paper-slide>
         <paper-slide><img src="/images/banner03.png" draggable="false"/></paper-slide>
       </l2t-paper-slider>
+      <div class="single-image">
+        <img src="/images/banner01.png" draggable="false"/>
+      </div>
     </section>
     
   </template>

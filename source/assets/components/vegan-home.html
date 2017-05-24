@@ -39,7 +39,7 @@
         color: white;
       }
 
-      ::slotted(ul) {
+      .column ::slotted(ul) {
         list-style-type: none;
         padding-left: 0;
       }
@@ -58,7 +58,7 @@
           margin-bottom: 30px;
         }
 
-        .column p, .column ::slotted(ul) {
+        .column ::slotted(p), .column ::slotted(ul) {
           max-width: 320px;
           margin: 0 auto 16px;
         }
@@ -71,11 +71,7 @@
           <i class="fa fa-leaf fa-3x" aria-hidden="true"></i>
         </div>
         <h2>Why vegan</h2>
-        <p>          
-Chambray Carles Terry Gibson balls plaid wolf. Disrupt fashion axe 90's quinoa +1 Neutra.
-Irony ethnic ennui McSweeney's, semiotics small batch squid direct trade. Readymade salvia Echo Park scenester.
-Farm-to-table selvage small batch swag asymmetrical whatever, tattooed American Apparel meh viral wolf tofu trust fund.
-        </p>
+        <slot name="why-vegan"></slot>
         <div class="icon">
           <a href="#">
             <span class="fa-stack fa-lg" aria-hidden="true">
@@ -91,11 +87,7 @@ Farm-to-table selvage small batch swag asymmetrical whatever, tattooed American 
           <i class="fa fa-cart-plus fa-3x" aria-hidden="true"></i>
         </div>
         <h2>How to shop vegan</h2>
-        <p>          
-Chambray Carles Terry Gibson balls plaid wolf. Disrupt fashion axe 90's quinoa +1 Neutra.
-Irony ethnic ennui McSweeney's, semiotics small batch squid direct trade. Readymade salvia Echo Park scenester.
-Farm-to-table selvage small batch swag asymmetrical whatever, tattooed American Apparel meh viral wolf tofu trust fund.
-        </p>
+        <slot name="how-to-shop-vegan"></slot>
         <div class="icon">
           <a href="#">
             <span class="fa-stack fa-lg" aria-hidden="true">
