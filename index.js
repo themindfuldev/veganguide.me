@@ -13,7 +13,7 @@ const fs           = require('fs-extra');
 
 const buildPolymer = () => {
   console.log('building polymer...');
-  exec("cd public; polymer build --js-compile", (error, stdout, stderr) => {
+  exec("cd public; polymer build --js-compile --js-minify --html-minify --css-minify", (error, stdout, stderr) => {
     if (error) {
       console.error(`exec error: ${error}`);
       return;
