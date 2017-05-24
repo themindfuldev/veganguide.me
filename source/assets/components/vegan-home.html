@@ -7,7 +7,7 @@
     <style>
       section {
         max-width: 960px;
-        margin: 30px auto 0;
+        margin: 30px auto;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -43,6 +43,26 @@
         list-style-type: none;
         padding-left: 0;
       }
+
+      @media only screen and (max-width : 768px) {
+        section {
+          flex-wrap: wrap;
+        } 
+
+        .column {
+          flex: initial;
+          width: 100%;
+        }
+
+        .column:not(:last-of-type) {
+          margin-bottom: 30px;
+        }
+
+        .column p, .column ::slotted(ul) {
+          max-width: 320px;
+          margin: 0 auto 16px;
+        }
+      }      
     </style>
 
     <section>      
@@ -57,10 +77,12 @@ Irony ethnic ennui McSweeney's, semiotics small batch squid direct trade. Readym
 Farm-to-table selvage small batch swag asymmetrical whatever, tattooed American Apparel meh viral wolf tofu trust fund.
         </p>
         <div class="icon">
-          <span class="fa-stack fa-lg" aria-hidden="true">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-plus fa-stack-1x"></i>
-          </span>
+          <a href="#">
+            <span class="fa-stack fa-lg" aria-hidden="true">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-plus fa-stack-1x"></i>
+            </span>
+          </a>
         </div>
       </div>
 
@@ -75,10 +97,12 @@ Irony ethnic ennui McSweeney's, semiotics small batch squid direct trade. Readym
 Farm-to-table selvage small batch swag asymmetrical whatever, tattooed American Apparel meh viral wolf tofu trust fund.
         </p>
         <div class="icon">
-          <span class="fa-stack fa-lg" aria-hidden="true">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-plus fa-stack-1x"></i>
-          </span>
+          <a href="#">
+            <span class="fa-stack fa-lg" aria-hidden="true">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-plus fa-stack-1x"></i>
+            </span>
+          </a>
         </div>
       </div>
 
@@ -89,10 +113,12 @@ Farm-to-table selvage small batch swag asymmetrical whatever, tattooed American 
         <h2>Latest posts</h2>
         <slot name="latest-posts"></slot>
         <div class="icon">
-          <span class="fa-stack fa-lg" aria-hidden="true">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-plus fa-stack-1x"></i>
-          </span>
+          <a href="#">
+            <span class="fa-stack fa-lg" aria-hidden="true">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-plus fa-stack-1x"></i>
+            </span>
+          </a>
         </div>
       </div>
     </section>
