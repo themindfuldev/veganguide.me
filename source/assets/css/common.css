@@ -1,0 +1,12 @@
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+p, ul {
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+}
