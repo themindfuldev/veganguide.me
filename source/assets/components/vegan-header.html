@@ -40,6 +40,10 @@
         text-align: right;
       }
 
+      .categories > * {
+        margin-left: 10px;
+      }
+
       .search {
         flex: initial;
         align-self: flex-end;
@@ -88,11 +92,21 @@
 
         .categories, .links {
           text-align: center;
+          font-size: 14px;
+        }
+      }
+
+      @media only screen and (max-width : 400px) {
+        .categories {
+          font-size: 12px;
         }
       }
 
       @media only screen and (max-width : 350px) {
-        .categories, .links {
+        .categories > * {
+          margin-left: 5px;
+        }
+        .links {
           font-size: 12px;
         }
       }
@@ -107,10 +121,6 @@
       }
 
       /* CATEGORIES */
-      .categories > * {
-        margin-left: 10px;
-      }
-
       .categories .apparel {
         color: #F4B994;
       }
