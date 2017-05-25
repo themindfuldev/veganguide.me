@@ -11,11 +11,13 @@
         display: flex;
         justify-content: space-between;
         max-width: 960px;
-        margin: 20px auto 30px;
+        margin: 0 auto;
+        padding: 30px;
       }
 
       .logo {
         flex: initial;
+        margin-right: 30px;
       }
 
       .header-content {
@@ -23,11 +25,13 @@
         flex-wrap: wrap;
         justify-content: space-between;
         max-width: 640px;
+        height: 144px;
       }
 
       .links {
         flex: initial;
         align-self: flex-end;
+        font-size: 14px;
       }
 
       .categories {
@@ -42,17 +46,59 @@
         width: 100%;
       }
 
-      @media only screen and (min-width : 481px) and (max-width : 768px) {
-        
+      @media only screen and (max-width : 850px) {
+        .categories {
+          flex: initial;
+          order: 1;
+          width: 100%;
+          text-align: left;
+        }
+
+        .links {
+          flex: initial;
+          order: 2;
+          width: 100%;
+        }
+
+        .search {
+          order: 3;
+        }
       }
       
-      @media only screen and (max-width : 480px) {
+      @media only screen and (max-width : 560px) {
+        header {
+          flex-wrap: wrap;
+          padding: 0;
+        }
 
+        .header-content {
+          order: 1;
+          width: 100%;
+          padding: 15px 30px 30px;
+        }
+
+        .logo {
+          order: 2;
+          width: 100%;
+          text-align: center;
+          background: #D5E993;          
+          margin-right: 0;
+          padding: 30px;
+        }
+
+        .categories, .links {
+          text-align: center;
+        }
+      }
+
+      @media only screen and (max-width : 350px) {
+        .categories, .links {
+          font-size: 12px;
+        }
       }
 
       /* LINKS */
       .links {
-        font-size: 14px;
         color: #999;
       }
 

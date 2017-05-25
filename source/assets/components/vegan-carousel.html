@@ -8,7 +8,7 @@
       }
 
       section {        
-        margin: 20px auto 30px;
+        margin: 0 auto;
         position: relative;
       }
 
@@ -34,6 +34,10 @@
       }
 
       @media only screen and (max-width : 768px) {
+        section {
+          background: #D5E993;
+        }
+
         l2t-paper-slider {
           display: none;
         }
@@ -41,24 +45,47 @@
         div.single-image {
           display: block;
         }
+
+        div.single-image img {
+          width: 200%;
+        }
       }
+
+       @media only screen and (max-width : 560px) {
+         div.single-image {
+          height: calc(var(--carousel-height) * .75);
+        }
+       }
+
+       @media only screen and (max-width : 400px) {
+         div.single-image {
+          height: calc(var(--carousel-height) * .6);
+        }
+       }
+
+       @media only screen and (max-width : 320px) {
+         div.single-image {
+          height: calc(var(--carousel-height) * .5);
+        }
+       }
     </style>
 
     <section>     
       <l2t-paper-slider auto-progress slide-duration="3" total-slides="3">
-        <paper-slide><img src="/images/banner01.png" draggable="false"/></paper-slide>
-        <paper-slide><img src="/images/banner02.png" draggable="false"/></paper-slide>
-        <paper-slide><img src="/images/banner03.png" draggable="false"/></paper-slide>
+        <paper-slide><img src="/images/banner01.jpg" draggable="false"/></paper-slide>
+        <paper-slide><img src="/images/banner02.jpg" draggable="false"/></paper-slide>
+        <paper-slide><img src="/images/banner03.jpg" draggable="false"/></paper-slide>
       </l2t-paper-slider>
       <div class="single-image">
-        <img src="/images/banner01.png" draggable="false"/>
+        <img src="/images/banner01.jpg" draggable="false"/>
       </div>
     </section>
     
   </template>
   <script>
-    Polymer({
-      is: "vegan-carousel"
-    });
+    class VeganCarousel extends Polymer.Element {
+      static get is() { return  'vegan-carousel' }
+    }
+    customElements.define(VeganCarousel.is, VeganCarousel);
   </script>
 </dom-module>
