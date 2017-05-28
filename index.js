@@ -1,5 +1,5 @@
 const Metalsmith   = require('metalsmith');
-const collections  = require('metalsmith-collections');
+const collections  = require('metalsmith-auto-collections');
 const markdown     = require('metalsmith-markdown');
 const permalinks   = require('metalsmith-permalinks');
 const assets       = require('metalsmith-assets');
@@ -39,7 +39,7 @@ Metalsmith(__dirname)
   .destination('./public')
   .clean(true)
   .use(collections({
-    articles: {
+    settings: {
       sortBy: 'date',
       reverse: true
     }

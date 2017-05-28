@@ -1,4 +1,5 @@
 <link rel="import" href="../vendors/polymer/polymer-element.html">
+<link rel="import" href="vegan-plus-icon.html">
 
 <dom-module id="vegan-home">
   <template>    
@@ -32,11 +33,7 @@
       }
 
       i.fa {
-        color: #88BF30
-      }
-
-      i.fa-plus {
-        color: white;
+        color: #88BF30;
       }
 
       .column ::slotted(ul) {
@@ -72,14 +69,7 @@
         </div>
         <h2>Why vegan</h2>
         <slot name="why-vegan"></slot>
-        <div class="icon">
-          <a href="#">
-            <span class="fa-stack fa-lg" aria-hidden="true">
-              <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fa fa-plus fa-stack-1x"></i>
-            </span>
-          </a>
-        </div>
+        <vegan-plus-icon href="/learn-more/"></vegan-plus-icon>
       </div>
 
       <div class="column">
@@ -88,14 +78,7 @@
         </div>
         <h2>How to shop vegan</h2>
         <slot name="how-to-shop-vegan"></slot>
-        <div class="icon">
-          <a href="#">
-            <span class="fa-stack fa-lg" aria-hidden="true">
-              <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fa fa-plus fa-stack-1x"></i>
-            </span>
-          </a>
-        </div>
+        <vegan-plus-icon href="/vegan-brands/"></vegan-plus-icon>
       </div>
 
       <div class="column">
@@ -104,14 +87,7 @@
         </div>
         <h2>Latest posts</h2>
         <slot name="latest-posts"></slot>
-        <div class="icon">
-          <a href="#">
-            <span class="fa-stack fa-lg" aria-hidden="true">
-              <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fa fa-plus fa-stack-1x"></i>
-            </span>
-          </a>
-        </div>
+        <vegan-plus-icon href="/latests-posts/"></vegan-plus-icon>
       </div>
     </section>
     

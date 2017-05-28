@@ -1,0 +1,44 @@
+<link rel="import" href="../vendors/polymer/polymer-element.html">
+
+<dom-module id="vegan-plus-icon">
+  <template>    
+    <link type="text/css" rel="stylesheet" href="https://use.fontawesome.com/ac44d0f306.css">
+    <link type="text/css" rel="stylesheet" href="../css/common.css">
+    <style>
+      .icon {
+        text-align: center;
+      }
+
+      i.fa {
+        color: #1BAF0F;
+      }
+
+      i.fa-plus {
+        color: white;
+      }
+    </style>
+    
+    <div class="icon">
+      <a href="[[ href ]]">
+        <span class="fa-stack fa-lg" aria-hidden="true">
+          <i class="fa fa-circle fa-stack-2x"></i>
+          <i class="fa fa-plus fa-stack-1x"></i>
+        </span>
+      </a>
+    </div>
+      
+  </template>
+  <script>
+    class VeganPlusIcon extends Polymer.Element {
+
+      static get is() { return  'vegan-plus-icon' }
+
+      static get properties() {
+        return {
+          href: String
+        }
+      }
+    }
+    customElements.define(VeganPlusIcon.is, VeganPlusIcon);
+  </script>
+</dom-module>
