@@ -40,14 +40,21 @@
         align-items: center;
       }
     </style>
-    <form>      
+    <form method="GET" action="/search.html">      
       <div class="search-icon"><i class="fa fa-search" aria-hidden="true"></i></div>
-      <input class="search-input" type="search" role="search" autocomplete="off" placeholder="[[placeholder]]" aria-label="[[placeholder]]" />
+      <input class="search-input" type="search" role="search" name="q" autocomplete="off" placeholder="[[placeholder]]" aria-label="[[placeholder]]" on-keyup="handleKeyInput"/>
     </form>
     
   </template>
   <script>
     class VeganSearch extends Polymer.Element {
+      constructor() {
+        super();
+        this.placeholder = 'Find the goodness...';     
+
+        this.setupSearchResults();            
+      }
+
       static get is() { return  'vegan-search' }
 
       static get properties() {
@@ -59,11 +66,24 @@
         }
       }
 
-      constructor() {
-        super();
-        this.placeholder = 'Find the goodness...';
+      setupSearchResults() {
+        if (!sessionStorage.getItem('articles')) {
+          fetch('/data/articles.json')
+          .then(resp => resp.json())
+          .then(function(data) {
+            sessionStorage.setItem('articles', JSON.stringify(data));
+            console.info('Successfully loaded all the articles into session storage');
+          })
+          .catch(function(error) {
+            console.err(`Error during search setup: ${error}`)
+          }); 
+        }
       }
 
+      handleKeyInput(e) {
+        const value = e.target.value;
+        console.log(value);
+      }    
     }
     customElements.define(VeganSearch.is, VeganSearch);    
   </script>

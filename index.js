@@ -1,6 +1,7 @@
 const Metalsmith   = require('metalsmith');
 const collections  = require('metalsmith-auto-collections');
 const markdown     = require('metalsmith-markdown');
+const writemetadata = require('metalsmith-writemetadata');
 const permalinks   = require('metalsmith-permalinks');
 const assets       = require('metalsmith-assets');
 const partials     = require('metalsmith-discover-partials');
@@ -17,6 +18,7 @@ const buildPolymer = () => {
   exec("cd public; polymer build --js-compile --js-minify --html-minify --css-minify", (error, stdout, stderr) => {
     if (error) {
       console.error(`exec error: ${error}`);
+      exec(`osascript -e 'display notification "Error: ${error}" with title "Metalsmith"'`);
       return;
     }
     console.log(`${stdout}`);
@@ -27,6 +29,8 @@ const buildPolymer = () => {
     fs.moveSync('public/build/default/vendors/iron-a11y-keys-behavior', 'public/vendors/iron-a11y-keys-behavior', { overwrite: true });
     fs.removeSync('public/build');
     console.log('Site build complete!');
+
+    exec(`osascript -e 'display notification "Site build complete" with title "Metalsmith"'`);
   });
 };
 
@@ -43,6 +47,21 @@ Metalsmith(__dirname)
     settings: {
       sortBy: 'date',
       reverse: true
+    }
+  }))
+  .use(writemetadata({
+    bufferencoding: 'utf8',
+    collections: {
+      articles: {
+        output: {
+          path: 'data/articles.json',
+          asObject: true,
+          metadata: {
+            "type": "list"
+          }
+        },
+        ignorekeys: ['next', 'previous', 'stats', 'mode']
+      }
     }
   }))
   .use(markdown())
@@ -74,6 +93,7 @@ Metalsmith(__dirname)
   .build(err => {
     if (err) {
       console.log(err);
+      exec(`osascript -e 'display notification "Error: ${err}" with title "Metalsmith"'`);
     }
     else {
       buildPolymer();
