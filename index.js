@@ -3,7 +3,8 @@ const collections  = require('metalsmith-auto-collections');
 const markdown     = require('metalsmith-markdown');
 const permalinks   = require('metalsmith-permalinks');
 const assets       = require('metalsmith-assets');
-const partials     = require('metalsmith-discover-partials')
+const partials     = require('metalsmith-discover-partials');
+const helpers      = require('metalsmith-discover-helpers');
 const templates    = require('metalsmith-templates');
 const serve        = require('metalsmith-serve');
 const watch        = require('metalsmith-watch');
@@ -54,6 +55,9 @@ Metalsmith(__dirname)
   }))  
   .use(partials({
     directory: 'source/_partials'
+  }))
+  .use(helpers({
+    directory: 'source/_helpers'
   }))
   .use(templates({
     engine: 'handlebars',

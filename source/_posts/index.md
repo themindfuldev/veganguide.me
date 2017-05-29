@@ -1,3 +1,3 @@
 ---
-template: default.html
+template: home.html
 ---

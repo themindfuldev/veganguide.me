@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+  {{> head }}
+</head>
+<body>
+  {{> setup-top-default}}
+  <vegan-header></vegan-header>  
+  <vegan-carousel></vegan-carousel>
+  <vegan-home>
+    <div slot="why-vegan">          
+      <p>Living a vegan life style is good for your heart in so many ways.</p>
+      <p>Veganism is all about love. Loving the animals, loving the planet, loving the people and loving yourself. It is a lifestyle full of love and kindness.</p>
+      <p>When you are a vegan, you are fighting for the animals lives, you are helping to reduce the impact of the destruction to our environment and your are cultivating a healthier body and mind.</p>
+      <p>All species matter. Save lives, save the planet, save yourself.</p>
+    </div>
+    <div slot="how-to-shop-vegan">          
+      <p>Unfortunately, animals are used in a lot of ways to satisfy the market. Tested as objects, having their emotions and suffering ignored, or killed without mercy, transformed in ingredients for the human use.</p>
+      <p>Taking these animals products off your life isn’t easy sometimes, but is totally possible and it brings a lot of joy and peace into your life.</p>
+      <p>Whether you’re thinking to have a vegan lifestyle or already living on that lovely way, we want to help you make it easier.</p>
+      <p>Vegan Guide is here to help you find information, tips and support about vegan products.</p>
+      <p>Let’s make the world a better place for all of us in this planet.</p>
+    </div>
+    {{#if articles }}
+      <div slot="latest-posts">
+        {{#eachn articles '10'}}
+          <p><a href="{{ path }}/index.html">{{ title }}</a></p>
+        {{/eachn}}
+      </div>
+    {{/if}}  
+  </vegan-home> 
+  <vegan-footer></vegan-footer>
+  {{> setup-bottom}}
+</body>
+</html>

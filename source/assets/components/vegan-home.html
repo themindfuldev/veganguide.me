@@ -1,10 +1,11 @@
 <link rel="import" href="../vendors/polymer/polymer-element.html">
 <link rel="import" href="vegan-plus-icon.html">
+<link rel="import" href="vegan-styles-common.html">
 
 <dom-module id="vegan-home">
   <template>    
     <link type="text/css" rel="stylesheet" href="https://use.fontawesome.com/ac44d0f306.css">
-    <link type="text/css" rel="stylesheet" href="../css/common.css">
+    <style include="vegan-styles-common"></style>
     <style>
       section {
         max-width: 960px;
@@ -36,11 +37,6 @@
         color: #88BF30;
       }
 
-      .column ::slotted(ul) {
-        list-style-type: none;
-        padding-left: 0;
-      }
-
       @media only screen and (max-width : 768px) {
         section {
           flex-wrap: wrap;
@@ -55,7 +51,7 @@
           margin-bottom: 30px;
         }
 
-        .column ::slotted(p), .column ::slotted(ul) {
+        .column ::slotted(p) {
           max-width: 320px;
           margin: 0 auto 16px;
         }
