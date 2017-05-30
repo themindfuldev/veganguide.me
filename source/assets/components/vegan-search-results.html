@@ -1,0 +1,49 @@
+<link rel="import" href="../vendors/polymer/polymer-element.html">
+<link rel="import" href="../vendors/polymer/lib/elements/dom-repeat.html">
+<link rel="import" href="vegan-styles-common.html">
+
+<dom-module id="vegan-search-results">
+  <template>    
+    <style include="vegan-styles-common"></style>   
+
+    <template is="dom-repeat" items="{{articles}}">
+      <article>
+        <div>[[item.title]]</div>
+        <div>[[item.date]]</div>
+        <div>[[item.path]]</div>
+        <div>[[item.contents]]</div>
+      </article>
+    </template>
+    
+  </template>
+  <script>
+    class VeganSearchResults extends Polymer.Element {
+      constructor() {
+        super();
+
+        this.loadSearchResults();
+      }
+
+      loadSearchResults() {
+        var articlesData = sessionStorage.getItem('articles');
+
+        if (articlesData) {          
+          this.articles = JSON.parse(articlesData).result;
+          console.log(this.articles);
+        }
+        else {
+          console.info('No articles to display')
+        }
+      }
+
+      static get is() { return  'vegan-search-results' }
+
+      static get properties() {
+        return {
+          articles: Array
+        }
+      }
+    }
+    customElements.define(VeganSearchResults.is, VeganSearchResults);    
+  </script>
+</dom-module>

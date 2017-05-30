@@ -14,21 +14,21 @@ const exec         = require('child_process').exec;
 const fs           = require('fs-extra');
 
 const buildPolymer = () => {
-  console.log('building polymer...');
+  console.info('building polymer...');
   exec("cd public; polymer build --js-compile --js-minify --html-minify --css-minify", (error, stdout, stderr) => {
     if (error) {
       console.error(`exec error: ${error}`);
       exec(`osascript -e 'display notification "Error: ${error}" with title "Metalsmith"'`);
       return;
     }
-    console.log(`${stdout}`);
+    console.info(`${stdout}`);
 
     fs.moveSync('public/build/default/components', 'public/components', { overwrite: true });
-    fs.moveSync('public/build/default/vendors/polymer', 'public/vendors/polymer', { overwrite: true });
+    fs.moveSync('public/build/default/vendors/polymer', 'public/vendors/polymer', { overwrite: true });    
     fs.moveSync('public/build/default/vendors/l2t-paper-slider', 'public/vendors/l2t-paper-slider', { overwrite: true });
     fs.moveSync('public/build/default/vendors/iron-a11y-keys-behavior', 'public/vendors/iron-a11y-keys-behavior', { overwrite: true });
-    fs.removeSync('public/build');
-    console.log('Site build complete!');
+    fs.moveSync('public/build/default/vendors/fetch', 'public/vendors/fetch', { overwrite: true });
+    console.info('Site build complete!');
 
     exec(`osascript -e 'display notification "Site build complete" with title "Metalsmith"'`);
   });
@@ -60,7 +60,7 @@ Metalsmith(__dirname)
             "type": "list"
           }
         },
-        ignorekeys: ['next', 'previous', 'stats', 'mode']
+        ignorekeys: ['next', 'previous', 'stats', 'mode', 'template']
       }
     }
   }))
