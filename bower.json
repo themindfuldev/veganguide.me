@@ -16,6 +16,7 @@
   "dependencies": {
     "polymer": "Polymer/polymer#^2.0.0",
     "l2t-paper-slider": "^1.4.1",
-    "fetch": "^2.0.3"
+    "fetch": "^2.0.3",
+    "elasticlunr.js": "^0.9.5"
   }
 }

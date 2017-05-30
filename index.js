@@ -60,7 +60,7 @@ Metalsmith(__dirname)
             "type": "list"
           }
         },
-        ignorekeys: ['next', 'previous', 'stats', 'mode', 'template']
+        ignorekeys: ['next', 'previous', 'mode', 'stats', 'template']
       }
     }
   }))
