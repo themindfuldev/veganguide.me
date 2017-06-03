@@ -59,7 +59,7 @@
       constructor() {
         super();
         this.placeholder = 'Find the goodness...';     
-        this.searchLength = 0;
+        this.searchTerm = '';
 
         this.setupSearchResults();            
       }      
@@ -98,17 +98,13 @@
       }
 
       handleKeyInput(e) {
-        // Ignoring non-chars
-        console.log(`${e.which}=${String.fromCharCode(e.which)}`)
-
         const value = e.target.value;
         
-        if (value.length !== this.searchLength) {
-          this.searchLength = value.length;
-          console.log(this.searchLength);
+        if (value !== this.searchTerm) {
+          this.searchTerm = value;
 
-          if (this.searchLength >= 3) {
-            this.doSearch(value.toLowerCase());
+          if (this.searchTerm.length >= 3) {
+            this.doSearch(this.searchTerm.toLowerCase());
           }
         }
 
@@ -122,7 +118,10 @@
       doSearch(q) {        
         const results = this.searchIndex.search(q);
 
-        console.log(results);
+        const searchedArticles = results.map(result => {
+          return this.searchIndex.documentStore.getDoc(result.ref);
+        })      
+        console.log(searchedArticles);
       }
 
     }
