@@ -59,6 +59,7 @@
       constructor() {
         super();
         this.placeholder = 'Find the goodness...';     
+        this.searchLength = 0;
 
         this.setupSearchResults();            
       }      
@@ -97,10 +98,18 @@
       }
 
       handleKeyInput(e) {
+        // Ignoring non-chars
+        console.log(`${e.which}=${String.fromCharCode(e.which)}`)
+
         const value = e.target.value;
         
-        if (value.length >= 3) {
-          this.doSearch(value);
+        if (value.length !== this.searchLength) {
+          this.searchLength = value.length;
+          console.log(this.searchLength);
+
+          if (this.searchLength >= 3) {
+            this.doSearch(value.toLowerCase());
+          }
         }
 
       }    
