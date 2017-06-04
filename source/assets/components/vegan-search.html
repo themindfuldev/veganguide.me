@@ -134,7 +134,9 @@
 
         this.set('searchResults.message', `${indexResults.length > 0? indexResults.length: 'No'} articles found.`);
         this.set('searchResults.articles', indexResults.map(result => {
-          return this.searchIndex.documentStore.getDoc(result.ref);
+          let article = this.searchIndex.documentStore.getDoc(result.ref);
+          article.path = article.path.replace('/index.md', '/').replace('.md', '/');
+          return article;
         }));
       }     
 
