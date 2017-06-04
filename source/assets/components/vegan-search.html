@@ -43,28 +43,43 @@
     </style>
     <form on-submit="handleFormSubmit">      
       <div class="search-icon"><i class="fa fa-search" aria-hidden="true"></i></div>
-      <input id="q" name="q" class="search-input" type="search" role="search" autocomplete="off" placeholder="[[placeholder]]" aria-label="[[placeholder]]" on-keyup="handleKeyInput"/>
+      <input name="search-term" class="search-input" type="search" role="search" autocomplete="off" placeholder="[[placeholder]]" aria-label="[[placeholder]]" value="{{searchQuery}}" on-keyup="handleKeyInput"/>
     </form>      
   </template>
   <script>  
+    const SEARCH_CONFIGURATION = {
+      fields: {
+        title: { boost: 2 },
+        contents: { boost: 1 }
+      },
+      expand: true
+    }; 
+
     class VeganSearch extends Polymer.Element {
       static get is() { return  'vegan-search' }
 
       static get properties() {
         return {
-          placeholder: String
+          placeholder: String,
+          searchQuery: {
+            type: String,
+            notify: true
+          }, 
+          searchResults: {
+            type: Object,
+            notify: true
+          }
         }
       }
 
       constructor() {
         super();
         this.placeholder = 'Find the goodness...';     
-        this.searchTerm = '';
 
-        this.setupSearchResults();            
+        this.setupSearch();            
       }      
 
-      setupSearchResults() {
+      setupSearch() {
         const articlesData = sessionStorage.getItem('articles');
 
         if (!articlesData) {
@@ -73,21 +88,21 @@
           .then(data => {
             this.articles = data.result;
             sessionStorage.setItem('articles', JSON.stringify(data));
-            console.info('Successfully loaded all the articles into session storage');
+            console.info('Search: successfully loaded all the articles into session storage.');
 
-            this.buildFullTextSearch();
+            this.buildIndex();
           })
           .catch(error => {
-            console.err(`Error during search setup: ${error}`)
+            console.err(`Search: Error during setup: ${error}`)
           }); 
         }
         else {
           this.articles = JSON.parse(articlesData).result;
-          this.buildFullTextSearch();
+          this.buildIndex();
         }
       }
       
-      buildFullTextSearch() {
+      buildIndex() {
         this.searchIndex = elasticlunr(function() {
           this.addField('title');
           this.addField('contents');
@@ -95,34 +110,41 @@
         });
 
         this.articles.forEach((doc, index) => this.searchIndex.addDoc(Object.assign({ id: index }, doc)));
+        console.info('Search: index is ready for searches.');
       }
 
       handleKeyInput(e) {
         const value = e.target.value;
         
-        if (value !== this.searchTerm) {
-          this.searchTerm = value;
+        if (value !== this.searchQuery) {
+          this.searchQuery = value;
 
-          if (this.searchTerm.length >= 3) {
-            this.doSearch(this.searchTerm.toLowerCase());
+          if (this.searchQuery.length >= 3) {
+            this.doSearch();
+          }
+          else {
+            this.clearSearch();
           }
         }
-
       }    
+
+      doSearch() {        
+        const indexResults = this.searchIndex.search(this.searchQuery.toLowerCase(), SEARCH_CONFIGURATION);
+        console.info(`Search: found ${indexResults.length} articles.`);
+
+        this.set('searchResults.articles', indexResults.map(result => {
+          return this.searchIndex.documentStore.getDoc(result.ref);
+        }));
+      }     
+
+      clearSearch() {
+        this.set('searchResults.articles', []);
+      }
 
       handleFormSubmit(e) {
         e.preventDefault();
         return false;
-      }
-
-      doSearch(q) {        
-        const results = this.searchIndex.search(q);
-
-        const searchedArticles = results.map(result => {
-          return this.searchIndex.documentStore.getDoc(result.ref);
-        })      
-        console.log(searchedArticles);
-      }
+      } 
 
     }
     customElements.define(VeganSearch.is, VeganSearch);    

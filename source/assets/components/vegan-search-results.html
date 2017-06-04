@@ -1,11 +1,30 @@
 <link rel="import" href="../vendors/polymer/polymer-element.html">
 <link rel="import" href="../vendors/polymer/lib/elements/dom-repeat.html">
+<link rel="import" href="../vendors/polymer/lib/elements/dom-if.html">
 <link rel="import" href="vegan-styles-common.html">
 
 <dom-module id="vegan-search-results">
   <template>    
+    <link type="text/css" rel="stylesheet" href="https://use.fontawesome.com/ac44d0f306.css" />
     <style include="vegan-styles-common"></style>   
-    <template is="dom-repeat" items="{{articles}}">
+    <style>
+      .icon {
+        position: absolute;
+        right: 30px;
+      }
+
+      .icon i.fa {
+        color: #1BAF0F;
+      }
+    </style>
+
+    <template is="dom-if" if="{{searchResults.articles.length}}">
+      <a href="javascript:void(0)" class="icon" on-click="clearSearch">
+        <i class="fa fa-times-circle fa-2x" aria-hidden="true"></i>
+      </a>
+    </template>
+
+    <template is="dom-repeat" items="{{searchResults.articles}}">
       <article>
         <div>[[item.title]]</div>
         <div>[[item.date]]</div>
@@ -17,30 +36,24 @@
   </template>
   <script>
     class VeganSearchResults extends Polymer.Element {
-      constructor() {
-        super();
-
-        this.loadSearchResults();
-      }
-
-      loadSearchResults() {
-        var articlesData = sessionStorage.getItem('articles');
-
-        if (articlesData) {          
-          this.articles = JSON.parse(articlesData).result;
-          console.log(this.articles);
-        }
-        else {
-          console.info('No articles to display')
-        }
-      }
-
       static get is() { return  'vegan-search-results' }
 
       static get properties() {
         return {
-          articles: Array
+          searchQuery: {
+            type: String,
+            notify: true
+          }, 
+          searchResults: {
+            type: Object,
+            notify: true
+          }
         }
+      }
+
+      clearSearch(e) {
+        this.set('searchQuery', '');
+        this.set('searchResults.articles', []);
       }
     }
     customElements.define(VeganSearchResults.is, VeganSearchResults);    

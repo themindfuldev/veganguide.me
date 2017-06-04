@@ -1,5 +1,6 @@
 <link rel="import" href="../vendors/polymer/polymer-element.html">
 <link rel="import" href="vegan-search.html">
+<link rel="import" href="vegan-search-results.html">
 <link rel="import" href="vegan-styles-common.html">
 <link rel="import" href="vegan-styles-tooltip.html">
 
@@ -173,15 +174,37 @@
           <a class="pro-tips" href="/pro-tips/" aria-label="Pro Tips" data-tooltip="Pro Tips"><i class="fa fa-thumbs-up fa-2x" aria-hidden="true"></i></a>
         </nav>
         <div class="search">
-          <vegan-search></vegan-search>
+          <vegan-search search-query="{{searchQuery}}" search-results="{{searchResults}}"></vegan-search>
         </div>
       </div>
     </header>
+    <vegan-search-results search-query="{{searchQuery}}" search-results="{{searchResults}}"></vegan-search-results>
     
   </template>
   <script>
     class VeganHeader extends Polymer.Element {
       static get is() { return  'vegan-header' }
+
+      static get properties() {
+        return {
+          searchQuery: {
+            type: String,
+            notify: true
+          }, 
+          searchResults: {
+            type: Object,
+            notify: true
+          }
+        }
+      }
+
+      constructor() {
+        super();
+        this.searchResults = {
+          articles: []
+        };
+        this.searchQuery = '';
+      }
     }
     customElements.define(VeganHeader.is, VeganHeader);
   </script>
