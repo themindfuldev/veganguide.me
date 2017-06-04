@@ -132,12 +132,14 @@
         const indexResults = this.searchIndex.search(this.searchQuery.toLowerCase(), SEARCH_CONFIGURATION);
         console.info(`Search: found ${indexResults.length} articles.`);
 
+        this.set('searchResults.message', `${indexResults.length > 0? indexResults.length: 'No'} articles found.`);
         this.set('searchResults.articles', indexResults.map(result => {
           return this.searchIndex.documentStore.getDoc(result.ref);
         }));
       }     
 
       clearSearch() {
+        this.set('searchResults.message', '');
         this.set('searchResults.articles', []);
       }
 

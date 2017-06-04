@@ -8,30 +8,42 @@
     <link type="text/css" rel="stylesheet" href="https://use.fontawesome.com/ac44d0f306.css" />
     <style include="vegan-styles-common"></style>   
     <style>
+      section {
+        margin: 0 30px 30px;
+        position: relative;
+      }
       .icon {
         position: absolute;
-        right: 30px;
+        right: 0;
+        top: 0;
       }
 
       .icon i.fa {
         color: #1BAF0F;
       }
+
+      article {
+        margin-bottom: 30px;
+      }
     </style>
 
-    <template is="dom-if" if="{{searchResults.articles.length}}">
-      <a href="javascript:void(0)" class="icon" on-click="clearSearch">
-        <i class="fa fa-times-circle fa-2x" aria-hidden="true"></i>
-      </a>
-    </template>
+    <section>
+      <template is="dom-if" if="{{searchResults.message}}">
+        <a href="javascript:void(0)" class="icon" on-click="clearSearch">
+          <i class="fa fa-times-circle fa-2x" aria-hidden="true"></i>
+        </a>
+        <h3>{{searchResults.message}}</h3>
+      </template>    
 
-    <template is="dom-repeat" items="{{searchResults.articles}}">
-      <article>
-        <div>[[item.title]]</div>
-        <div>[[item.date]]</div>
-        <div>[[item.path]]</div>
-        <div>[[item.contents]]</div>
-      </article>
-    </template>
+      <template is="dom-repeat" items="{{searchResults.articles}}">
+        <article>
+          <div>[[item.title]]</div>
+          <div>[[item.date]]</div>
+          <div>[[item.path]]</div>
+          <div>[[item.contents]]</div>
+        </article>
+      </template>
+    </section>
     
   </template>
   <script>
@@ -53,6 +65,7 @@
 
       clearSearch(e) {
         this.set('searchQuery', '');
+        this.set('searchResults.message', '');
         this.set('searchResults.articles', []);
       }
     }
