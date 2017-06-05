@@ -1,5 +1,5 @@
 const Metalsmith   = require('metalsmith');
-const collections  = require('metalsmith-auto-collections');
+const collections  = require('metalsmith-collections');
 const markdown     = require('metalsmith-markdown');
 const writemetadata = require('metalsmith-writemetadata');
 const permalinks   = require('metalsmith-permalinks');
@@ -28,6 +28,7 @@ const buildPolymer = () => {
     fs.moveSync('public/build/default/vendors/l2t-paper-slider', 'public/vendors/l2t-paper-slider', { overwrite: true });
     fs.moveSync('public/build/default/vendors/iron-a11y-keys-behavior', 'public/vendors/iron-a11y-keys-behavior', { overwrite: true });
     fs.moveSync('public/build/default/vendors/fetch', 'public/vendors/fetch', { overwrite: true });
+    fs.removeSync('public/build');
     console.info('Site build complete!');
 
     exec(`osascript -e 'display notification "Site build complete" with title "Metalsmith"'`);
@@ -44,6 +45,7 @@ Metalsmith(__dirname)
   .destination('./public')
   .clean(true)
   .use(collections({
+    articles: ['**/*.md', '!*.md'],    
     settings: {
       sortBy: 'date',
       reverse: true
@@ -55,10 +57,7 @@ Metalsmith(__dirname)
       articles: {
         output: {
           path: 'data/articles.json',
-          asObject: true,
-          metadata: {
-            "type": "list"
-          }
+          asObject: true
         },
         ignorekeys: ['next', 'previous', 'mode', 'stats', 'template']
       }

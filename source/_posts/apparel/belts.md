@@ -1,7 +1,7 @@
 ---
-title: Dog snacks
-date: 2012-08-20
-collection: articles
+title: Belts
+date: 2017-06-05
+collection: apparel
 template: post.html
 ---
 

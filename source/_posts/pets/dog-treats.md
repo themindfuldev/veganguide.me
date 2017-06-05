@@ -1,7 +1,7 @@
 ---
-title: Fragances
-date: 2012-08-20
-collection: articles
+title: Dog treats
+date: 2017-06-05
+collection: pets
 template: post.html
 ---
 

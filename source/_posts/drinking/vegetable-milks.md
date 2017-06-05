@@ -1,7 +1,7 @@
 ---
 title: Vegetable milks
-date: 2012-08-20
-collection: articles
+date: 2017-06-05
+collection: drinking
 template: post.html
 ---
 

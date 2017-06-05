@@ -21,13 +21,11 @@
       <p>Whether you’re thinking to have a vegan lifestyle or already living on that lovely way, we want to help you out.</p>
       <p>Know the brands which support the vegan cause.</p>
     </section>
-    {{#if articles }}
-      <section slot="latest-posts">
-        {{#eachn articles '10'}}
-          <p><a href="{{ path }}/">{{ title }}</a></p>
-        {{/eachn}}
-      </section>
-    {{/if}}  
+    <section slot="latest-posts">
+      {{#eachn articles '10'}}
+        <p><a href="{{ path }}/">{{ title }}</a></p>
+      {{/eachn}}
+    </section>
   </vegan-home> 
   <vegan-footer></vegan-footer>
   {{> setup-bottom}}

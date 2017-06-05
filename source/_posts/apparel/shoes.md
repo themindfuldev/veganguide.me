@@ -1,7 +1,7 @@
 ---
-title: Men's shoes
-date: 2012-08-20
-collection: articles
+title: Shoes
+date: 2017-06-05
+collection: apparel
 template: post.html
 ---
 

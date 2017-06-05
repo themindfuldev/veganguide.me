@@ -1,7 +1,7 @@
 ---
-title: Lipsticks
-date: 2012-08-20
-collection: articles
+title: Deodorant
+date: 2017-06-05
+collection: personal-care
 template: post.html
 ---
 

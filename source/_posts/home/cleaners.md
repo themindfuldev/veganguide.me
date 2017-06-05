@@ -1,7 +1,7 @@
 ---
-title: Body lotions
-date: 2012-08-20
-collection: articles
+title: Cleaners
+date: 2017-06-05
+collection: home
 template: post.html
 ---
 

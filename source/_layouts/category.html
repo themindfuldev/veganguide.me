@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+  {{> head }}
+</head>
+<body>
+  {{> setup-top}}
+  <vegan-header></vegan-header>
+
+  {{{ contents }}}
+
+  {{#eachCollection collection this}}
+    <article>
+      <h3><a href="/{{path}}">{{title}}</a></h3>
+    </article>
+  {{/eachCollection}}
+
+  <vegan-footer></vegan-footer>
+  {{> setup-bottom}}
+</body>
+</html>

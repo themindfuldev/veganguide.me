@@ -1,7 +1,7 @@
 ---
-title: Alcoholic drinks
-date: 2012-08-20
-collection: articles
+title: Wine
+date: 2017-06-05
+collection: drinking
 template: post.html
 ---
 

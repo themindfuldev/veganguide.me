@@ -50,6 +50,7 @@
     const SEARCH_CONFIGURATION = {
       fields: {
         title: { boost: 2 },
+        collection: { boost: 2 },
         contents: { boost: 1 }
       },
       expand: true
@@ -86,7 +87,13 @@
           fetch('/data/articles.json')
           .then(resp => resp.json())
           .then(data => {
-            this.articles = data.result;
+            this.articles = data.result.map(article => {
+              article.collection = article.collection.filter(collection => {
+                return collection !== 'articles';
+              });
+              return article;
+            });
+
             sessionStorage.setItem('articles', JSON.stringify(data));
             console.info('Search: successfully loaded all the articles into session storage.');
 
@@ -106,6 +113,7 @@
         this.searchIndex = elasticlunr(function() {
           this.addField('title');
           this.addField('contents');
+          this.addField('collection');
           this.setRef('id');
         });
 
