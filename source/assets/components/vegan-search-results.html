@@ -51,6 +51,9 @@
 
         <template is="dom-repeat" items="{{searchResults.articles}}">
           <article>
+            <img src="/images/[[item.image]]" />
+            [[item.date]]<br/>
+            [[item.month]], [[item.fullYear]]
             <h3><a href="/[[item.path]]">[[item.title]]</a></h3>
             <p>[[item.contents]]</p>
           </article>
