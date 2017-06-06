@@ -1,0 +1,82 @@
+<link rel="import" href="../vendors/polymer/polymer-element.html">
+<link rel="import" href="vegan-styles-common.html">
+
+<dom-module id="vegan-article-item">
+  <template>    
+    <style include="vegan-styles-common"></style>   
+    <style>
+      article {
+        margin-top: 30px;
+      }
+
+      h3.message {
+        margin: 0;
+      }
+
+      p {
+        max-height: 5em;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        margin-bottom: 0;
+      }
+    </style>
+
+    <article>
+      <img src="/images/[[image]]" />
+      [[day]]<br/>
+      [[month]], [[year]]
+      <h3><a href="/[[path]]">[[title]]</a></h3>
+      <p><slot></slot></p>
+    </article>
+  </template>
+  <script>
+    function leftPad(number, targetLength) {
+      let output = number + '';
+      while (output.length < targetLength) {
+        output = '0' + output;
+      }
+      return output;
+    }
+
+    class VeganArticleItem extends Polymer.Element {
+      static get is() { return 'vegan-article-item' }
+
+      static get properties() {
+        return {
+          image: String,
+          path: String,
+          title: String,
+          date: String,
+          day: {
+            type: String,
+            computed: 'computeDay(date)'
+          },
+          month: {
+            type: String,
+            computed: 'computeMonth(date)'
+          },
+          year: {
+            type: String,
+            computed: 'computeYear(date)'
+          }
+        }
+      }
+
+      computeDay(date) {
+        return leftPad((new Date(date)).getDate() + 1, 2);
+      }
+
+      computeMonth(date) {
+        return leftPad((new Date(date)).getMonth() + 1, 2);
+      }
+
+      computeYear(date) {
+        return (new Date(date)).getFullYear();
+      }
+
+    }
+    customElements.define(VeganArticleItem.is, VeganArticleItem);    
+  </script>
+</dom-module>

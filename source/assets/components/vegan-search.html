@@ -91,12 +91,6 @@
               article.collection = article.collection.filter(collection => {
                 return collection !== 'articles';
               });
-
-              let date = new Date(article.date);
-              article.date = date.getDate();
-              article.month = date.getMonth();
-              article.fullYear = date.getFullYear();
-
               return article;
             });
 

@@ -5,6 +5,7 @@
 </head>
 <body>
   {{> setup-top}}
+  {{> setup-category}}
   <vegan-header></vegan-header>
 
   <img src="/images/{{image}}" />
@@ -12,9 +13,9 @@
   {{{ contents }}}
 
   {{#eachCollection collection this}}
-    <article>
-      <h3><a href="/{{path}}">{{title}}</a></h3>
-    </article>
+    <vegan-article-item date="{{date}}" image="{{image}}" path="{{path}}" title="{{title}}">
+      {{rawContents}}
+    </vegan-article-item>    
   {{/eachCollection}}
 
   <vegan-footer></vegan-footer>

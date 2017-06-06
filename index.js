@@ -63,6 +63,13 @@ Metalsmith(__dirname)
       }
     }
   }))
+  .use(function(files, metalsmith, done){
+    setImmediate(done);
+    Object.keys(files).forEach(function(file){
+      var data = files[file];
+      data.rawContents = data.contents;
+    });
+  })
   .use(markdown())
   .use(permalinks({
     relative: false

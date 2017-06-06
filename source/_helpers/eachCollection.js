@@ -38,7 +38,9 @@ module.exports = function eachCollection(context, metadata, options) {
   let collections = context.filter(collection => {
     return collection !== 'articles';
   });
-  context = metadata[collections[0]];
+  context = metadata[collections[0]].filter(article => {
+    return article.path.indexOf('/') !== -1;
+  });
 
   if (isFunction(context)) { context = context.call(this); }
 

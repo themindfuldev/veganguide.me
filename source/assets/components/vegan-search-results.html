@@ -1,6 +1,7 @@
 <link rel="import" href="../vendors/polymer/polymer-element.html">
 <link rel="import" href="../vendors/polymer/lib/elements/dom-repeat.html">
 <link rel="import" href="../vendors/polymer/lib/elements/dom-if.html">
+<link rel="import" href="vegan-article-item.html">
 <link rel="import" href="vegan-styles-common.html">
 
 <dom-module id="vegan-search-results">
@@ -23,47 +24,26 @@
       .icon i.fa {
         color: #1BAF0F;
       }
-
-      article {
-        margin-top: 30px;
-      }
-
-      h3.message {
-        margin: 0;
-      }
-
-      p {
-        max-height: 5em;
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 4;
-        -webkit-box-orient: vertical;
-        margin-bottom: 0;
-      }
     </style>
 
     <template is="dom-if" if="{{searchResults.message}}">
       <section>
-          <a href="javascript:void(0)" class="icon" on-click="clearSearch">
-            <i class="fa fa-times-circle fa-2x" aria-hidden="true"></i>
-          </a>
-          <h3 class="message">{{searchResults.message}}</h3>
+        <a href="javascript:void(0)" class="icon" on-click="clearSearch">
+          <i class="fa fa-times-circle fa-2x" aria-hidden="true"></i>
+        </a>
+        <h3 class="message">{{searchResults.message}}</h3>
 
         <template is="dom-repeat" items="{{searchResults.articles}}">
-          <article>
-            <img src="/images/[[item.image]]" />
-            [[item.date]]<br/>
-            [[item.month]], [[item.fullYear]]
-            <h3><a href="/[[item.path]]">[[item.title]]</a></h3>
-            <p>[[item.contents]]</p>
-          </article>
+          <vegan-article-item date="[[item.date]]" image="[[item.image]]" path="[[item.path]]" title="[[item.title]]">
+            [[item.contents]]
+          </vegan-article-item>
         </template>
       </section>    
     </template>    
   </template>
   <script>
     class VeganSearchResults extends Polymer.Element {
-      static get is() { return  'vegan-search-results' }
+      static get is() { return 'vegan-search-results' }
 
       static get properties() {
         return {
