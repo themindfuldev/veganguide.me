@@ -11,8 +11,9 @@
       }
 
       .media {
-        flex: initial;
+        flex: none;
         margin-right: 30px;
+        width: 250px;
       }
 
       .media a:hover {
@@ -23,11 +24,10 @@
         line-height: 0;
         overflow: hidden;
         height: 70px;
-        width: 250px;
       }
 
       @media only screen and (max-width : 850px) {
-        .media .image {
+        .media {
           width: 200px;
         }
       }
@@ -62,6 +62,10 @@
 
       .media .date .month-year {
         font-size: 14px;
+      }
+
+      .content {
+        flex: initial;
       }
 
       .content h3 {
