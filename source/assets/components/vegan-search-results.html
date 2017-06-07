@@ -1,6 +1,7 @@
 <link rel="import" href="../vendors/polymer/polymer-element.html">
 <link rel="import" href="../vendors/polymer/lib/elements/dom-repeat.html">
 <link rel="import" href="../vendors/polymer/lib/elements/dom-if.html">
+<link rel="import" href="vegan-article-list.html">
 <link rel="import" href="vegan-article-item.html">
 <link rel="import" href="vegan-styles-common.html">
 
@@ -12,13 +13,6 @@
       section {
         width: 100%;
         background-color: #fafafa;
-      }
-
-      .content {
-        padding: 30px;
-        position: relative;
-        max-width: 1240px;
-        margin: 0 auto;
       }
 
       .icon {
@@ -34,7 +28,7 @@
 
     <template is="dom-if" if="{{searchResults.message}}">
       <section>
-        <div class="content">
+        <vegan-article-list>
           <a href="javascript:void(0)" class="icon" on-click="clearSearch">
             <i class="fa fa-times-circle fa-2x" aria-hidden="true"></i>
           </a>
@@ -45,7 +39,7 @@
               [[item.contents]]
             </vegan-article-item>
           </template>
-        </div>
+        </vegan-article-list>
       </section>    
     </template>    
   </template>

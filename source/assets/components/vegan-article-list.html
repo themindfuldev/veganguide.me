@@ -1,0 +1,26 @@
+<link rel="import" href="../vendors/polymer/polymer-element.html">
+<link rel="import" href="vegan-styles-common.html">
+
+<dom-module id="vegan-article-list">
+  <template>    
+    <style include="vegan-styles-common"></style>    
+    <style>
+      .content {
+        padding: 30px;
+        position: relative;
+        max-width: 1240px;
+        margin: 0 auto;
+      }
+    </style>   
+
+    <div class="content">
+      <slot></slot>
+    </div>
+  </template>
+  <script>
+    class VeganArticleList extends Polymer.Element {
+      static get is() { return 'vegan-article-list' }
+    }
+    customElements.define(VeganArticleList.is, VeganArticleList);    
+  </script>
+</dom-module>

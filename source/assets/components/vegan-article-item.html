@@ -60,15 +60,11 @@
         font-size: 14px;
       }
 
-      .content {
-
-      }
-
       .content h3 {
         margin-top: 0;
       }
 
-      p {
+      .content p {
         max-height: 5em;
         overflow: hidden;
         display: -webkit-box;
@@ -80,13 +76,15 @@
 
     <article>
       <div class="media">
-        <div class="image">
-          <img src="/images/[[image]]" draggable="false"/>
-        </div>
-        <div class="date">
-          <div class="day">[[day]]</div>
-          <div class="month-year">[[month]], [[year]]</div>
-        </div>
+        <a href="/[[path]]">
+          <div class="image">
+            <img src="/images/[[image]]" draggable="false"/>
+          </div>
+          <div class="date">
+            <div class="day">[[day]]</div>
+            <div class="month-year">[[month]], [[year]]</div>
+          </div>
+        </a>
       </div>
       <div class="content">
         <h3><a href="/[[path]]">[[title]]</a></h3>
