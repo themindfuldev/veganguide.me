@@ -8,11 +8,17 @@
   <template>    
     <link type="text/css" rel="stylesheet" href="https://use.fontawesome.com/ac44d0f306.css" />
     <style include="vegan-styles-common"></style>   
-    <style>
+    <style>   
       section {
+        width: 100%;
         background-color: #fafafa;
+      }
+
+      .content {
         padding: 30px;
         position: relative;
+        max-width: 1240px;
+        margin: 0 auto;
       }
 
       .icon {
@@ -28,16 +34,18 @@
 
     <template is="dom-if" if="{{searchResults.message}}">
       <section>
-        <a href="javascript:void(0)" class="icon" on-click="clearSearch">
-          <i class="fa fa-times-circle fa-2x" aria-hidden="true"></i>
-        </a>
-        <h3 class="message">{{searchResults.message}}</h3>
+        <div class="content">
+          <a href="javascript:void(0)" class="icon" on-click="clearSearch">
+            <i class="fa fa-times-circle fa-2x" aria-hidden="true"></i>
+          </a>
+          <h3 class="message">{{searchResults.message}}</h3>
 
-        <template is="dom-repeat" items="{{searchResults.articles}}">
-          <vegan-article-item date="[[item.date]]" image="[[item.image]]" path="[[item.path]]" title="[[item.title]]">
-            [[item.contents]]
-          </vegan-article-item>
-        </template>
+          <template is="dom-repeat" items="{{searchResults.articles}}">
+            <vegan-article-item date="[[item.date]]" image="[[item.image]]" path="[[item.path]]" title="[[item.title]]">
+              [[item.contents]]
+            </vegan-article-item>
+          </template>
+        </div>
       </section>    
     </template>    
   </template>

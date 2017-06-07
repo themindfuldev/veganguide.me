@@ -7,10 +7,65 @@
     <style>
       article {
         margin-top: 30px;
+        display: flex;
       }
 
-      h3.message {
-        margin: 0;
+      .media {
+        flex: initial;
+        margin-right: 30px;
+      }
+
+      .media .image {
+        line-height: 0;
+        overflow: hidden;
+        height: 70px;
+        width: 250px;
+      }
+
+      @media only screen and (max-width : 850px) {
+        .media .image {
+          width: 200px;
+        }
+      }
+
+      @media only screen and (max-width : 768px) {
+        .media {
+          display: none;
+        }
+      }
+
+      .media .image img {
+        height: 70px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: relative;
+        display: flex;
+      }
+
+      .media .date {
+        background-color: #eee;
+        color: #1BAF0F;
+        text-align: center;
+        font-weight: bold;
+        font-family: 'Raleway', sans-serif;   
+        padding-bottom: 5px;     
+      }
+
+      .media .date .day {
+        font-size: 20px;
+      }
+
+      .media .date .month-year {
+        font-size: 14px;
+      }
+
+      .content {
+
+      }
+
+      .content h3 {
+        margin-top: 0;
       }
 
       p {
@@ -24,11 +79,19 @@
     </style>
 
     <article>
-      <img src="/images/[[image]]" />
-      [[day]]<br/>
-      [[month]], [[year]]
-      <h3><a href="/[[path]]">[[title]]</a></h3>
-      <p><slot></slot></p>
+      <div class="media">
+        <div class="image">
+          <img src="/images/[[image]]" draggable="false"/>
+        </div>
+        <div class="date">
+          <div class="day">[[day]]</div>
+          <div class="month-year">[[month]], [[year]]</div>
+        </div>
+      </div>
+      <div class="content">
+        <h3><a href="/[[path]]">[[title]]</a></h3>
+        <p><slot></slot></p>
+      </div>
     </article>
   </template>
   <script>
