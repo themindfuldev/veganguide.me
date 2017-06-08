@@ -1,5 +1,6 @@
 <link rel="import" href="../vendors/polymer/polymer-element.html">
 <link rel="import" href="../vendors/polymer/lib/elements/dom-repeat.html">
+<link rel="import" href="../vendors/polymer/lib/elements/dom-if.html">
 <link rel="import" href="vegan-article-item.html">
 <link rel="import" href="vegan-styles-common.html">
 
@@ -17,11 +18,12 @@
 
     <div class="content">
       <slot name="header"></slot>
-      <template is="dom-repeat" items="[[list]]">
+      <template is="dom-repeat" items="[[pagedList]]">
         <vegan-article-item date="[[item.date]]" image="[[item.image]]" path="[[item.path]]" title="[[item.title]]">
           [[item.contents]]
         </vegan-article-item>
       </template>
+      <button on-click="loadMore">Load More</button>
     </div>
   </template>
   <script>
@@ -31,8 +33,29 @@
       static get properties() {
         return {
           limit: Number,
-          list: Array
+          list: Array,
+          pagedList: Array
         };
+      }
+
+      static get observers() {
+        return [
+          'updatePagedList(list, limit)'
+        ]
+      }
+
+      connectedCallback() {
+        super.connectedCallback();
+        this.pageSize = this.limit;
+      }
+
+      updatePagedList(list, limit) {
+        console.log(`updated list to ${limit}`)
+        this.pagedList = list.slice(0, limit);
+      }
+
+      loadMore() {
+        this.limit += this.pageSize;
       }
 
     }
