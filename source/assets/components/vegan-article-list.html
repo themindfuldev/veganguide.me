@@ -14,6 +14,20 @@
         max-width: 1240px;
         margin: 0 auto;
       }
+
+      .load-more {
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      .load-more button {
+        background-color: #1BAF0F;
+        color: white;
+        font-size: 16px;
+        text-transform: uppercase;
+        padding: 10px 20px;
+        border: 0;
+      }
     </style>   
 
     <div class="content">
@@ -24,7 +38,9 @@
         </vegan-article-item>
       </template>
       <template is="dom-if" if="[[shouldDisplayLoadMore]]">
-        <button on-click="loadMore">Load More</button>
+        <div class="load-more">
+          <button on-click="loadMore">Load More</button>
+        </div>
       </template>
     </div>
   </template>
@@ -49,15 +65,16 @@
       }      
 
       resetList(list) {
-        if (!this.pageSize) {
-          this.pageSize = this.limit;
-        }
-        else {
+        if (this.pageSize) {
           this.limit = this.upTo(this.pageSize);
         }
       }
 
       updatePagedList(limit) {
+        if (!this.pageSize) {
+          this.pageSize = this.limit;
+        }
+
         this.pagedList = this.list.slice(0, this.upTo(limit));
         this.shouldDisplayLoadMore = this.list.length > this.pagedList.length;
       }
