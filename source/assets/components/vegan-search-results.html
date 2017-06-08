@@ -1,8 +1,6 @@
 <link rel="import" href="../vendors/polymer/polymer-element.html">
-<link rel="import" href="../vendors/polymer/lib/elements/dom-repeat.html">
 <link rel="import" href="../vendors/polymer/lib/elements/dom-if.html">
 <link rel="import" href="vegan-article-list.html">
-<link rel="import" href="vegan-article-item.html">
 <link rel="import" href="vegan-styles-common.html">
 
 <dom-module id="vegan-search-results">
@@ -24,21 +22,21 @@
       .icon i.fa {
         color: #1BAF0F;
       }
+
+      h3.message {
+        margin-top: 0;
+      }
     </style>
 
     <template is="dom-if" if="{{searchResults.message}}">
       <section>
-        <vegan-article-list>
-          <a href="javascript:void(0)" class="icon" on-click="clearSearch">
-            <i class="fa fa-times-circle fa-2x" aria-hidden="true"></i>
-          </a>
-          <h3 class="message">{{searchResults.message}}</h3>
-
-          <template is="dom-repeat" items="{{searchResults.articles}}">
-            <vegan-article-item date="[[item.date]]" image="[[item.image]]" path="[[item.path]]" title="[[item.title]]">
-              [[item.contents]]
-            </vegan-article-item>
-          </template>
+        <vegan-article-list limit="5" list="{{searchResults.articles}}">
+          <div slot="header">
+            <a href="javascript:void(0)" class="icon" on-click="clearSearch">
+              <i class="fa fa-times-circle fa-2x" aria-hidden="true"></i>
+            </a>
+            <h3 class="message">{{searchResults.message}}</h3>
+          </div>
         </vegan-article-list>
       </section>    
     </template>    

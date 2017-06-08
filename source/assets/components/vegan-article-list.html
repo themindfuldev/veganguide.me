@@ -1,4 +1,6 @@
 <link rel="import" href="../vendors/polymer/polymer-element.html">
+<link rel="import" href="../vendors/polymer/lib/elements/dom-repeat.html">
+<link rel="import" href="vegan-article-item.html">
 <link rel="import" href="vegan-styles-common.html">
 
 <dom-module id="vegan-article-list">
@@ -14,12 +16,25 @@
     </style>   
 
     <div class="content">
-      <slot></slot>
+      <slot name="header"></slot>
+      <template is="dom-repeat" items="[[list]]">
+        <vegan-article-item date="[[item.date]]" image="[[item.image]]" path="[[item.path]]" title="[[item.title]]">
+          [[item.contents]]
+        </vegan-article-item>
+      </template>
     </div>
   </template>
   <script>
     class VeganArticleList extends Polymer.Element {
       static get is() { return 'vegan-article-list' }
+
+      static get properties() {
+        return {
+          limit: Number,
+          list: Array
+        };
+      }
+
     }
     customElements.define(VeganArticleList.is, VeganArticleList);    
   </script>
