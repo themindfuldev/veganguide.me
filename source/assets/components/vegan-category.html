@@ -5,25 +5,6 @@
   <template>    
     <style include="vegan-styles-common"></style>
     <style>
-      :host {
-        --carousel-height: 378px;
-      }
-
-      section.image {
-        margin: 0 auto;
-        position: relative;
-        height: var(--carousel-height);
-        overflow: hidden;
-      }
-
-      section.image ::slotted(img) {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        position: relative;
-        display: flex;
-      }
-
       section.head {
         background-color: #fafafa;  
         background: linear-gradient(90deg, #fafafa 75%, #D5E993 25%);      
@@ -81,14 +62,11 @@
       }
     </style>
 
-    <section class="image">      
-      <slot name="image"></slot>
-    </section>
-
     <section class="head">
       <div class="head-content">
         <div class="column description">
-          <slot name="description"></slot>        
+          <h1>[[ title ]]</h1>
+          <slot name="contents"></slot>        
         </div>
 
         <div class="column pay-attention-to">
@@ -104,6 +82,13 @@
   <script>
     class VeganCategory extends Polymer.Element {
       static get is() { return  'vegan-category' }
+
+       static get properties() {
+        return {
+          title: String
+        }
+      }
+
     }
     customElements.define(VeganCategory.is, VeganCategory);
   </script>

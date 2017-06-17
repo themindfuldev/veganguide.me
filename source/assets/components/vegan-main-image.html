@@ -1,0 +1,46 @@
+<link rel="import" href="../vendors/polymer/polymer-element.html">
+<link rel="import" href="vegan-styles-common.html">
+
+<dom-module id="vegan-main-image">
+  <template>    
+    <style include="vegan-styles-common"></style>
+    <style>
+      :host {
+        --carousel-height: 378px;
+      }
+
+      section.image {
+        margin: 0 auto;
+        position: relative;
+        height: var(--carousel-height);
+        overflow: hidden;
+      }
+
+      section.image img {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: relative;
+        display: flex;
+      }
+
+    </style>
+
+    <section class="image">      
+      <img src="[[src]]" />
+    </section>    
+    
+  </template>
+  <script>
+    class VeganMainImage extends Polymer.Element {
+      static get is() { return  'vegan-main-image' }
+
+      static get properties() {
+        return {
+          src: String
+        }
+      }
+    }
+    customElements.define(VeganMainImage.is, VeganMainImage);
+  </script>
+</dom-module>

@@ -7,11 +7,13 @@
   {{> setup-top}}
   <vegan-header></vegan-header>
 
-  <section class="content">
-    <h1>{{ title }}</h1>
-    <time>{{ date }}</time>
-    {{{ contents  }}}
-  </section>
+  <vegan-main-image src="/images/{{image}}"></vegan-main-image>
+
+  <vegan-article title="{{ title }}" date="{{ date }}">
+    <div slot="contents" >
+      {{{ contents }}}
+    </div>
+  </vegan-article>
 
   <vegan-footer></vegan-footer>
   {{> setup-bottom}}

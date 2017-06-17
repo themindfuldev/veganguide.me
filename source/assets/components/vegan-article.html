@@ -1,0 +1,45 @@
+<link rel="import" href="../vendors/polymer/polymer-element.html">
+<link rel="import" href="vegan-styles-common.html">
+
+<dom-module id="vegan-article">
+  <template>    
+    <style include="vegan-styles-common"></style>
+    <style>
+      section.content {
+        padding: 30px;
+        position: relative;
+        max-width: 1240px;
+        margin: 0 auto;
+      }   
+    </style>
+
+    <section class="content">
+      <h1>[[ title ]]</h1>
+      <time>[[ formattedDate ]]</time>
+      <slot name="contents"></slot>
+    </section>
+    
+  </template>
+  <script>
+    class VeganArticle extends Polymer.Element {
+      static get is() { return  'vegan-article' }
+
+      static get properties() {
+        return {
+          title: String,
+          date: String,
+          formattedDate: {
+            type: String,
+            computed: 'formatDate(date)'
+          }
+        }
+      }
+
+      formatDate(date) {
+        const dateComponents = new Date(date).toDateString().split(' ');
+        return `${dateComponents[0]}, ${dateComponents[1]} ${dateComponents[2]}, ${dateComponents[3]}`;
+      }
+    }
+    customElements.define(VeganArticle.is, VeganArticle);
+  </script>
+</dom-module>
