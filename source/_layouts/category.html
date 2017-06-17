@@ -8,11 +8,19 @@
   {{> setup-category}}
   <vegan-header></vegan-header>
 
-  <img src="/images/{{image}}" />
-
-  {{{ contents }}}
-
-  <vegan-article-list limit="1" list="{{getCollection collection this}}"></vegan-article-list>
+  <vegan-category>
+    <img src="/images/{{image}}" slot="image" />
+    <div slot="description">
+      <h1>{{ title }}</h1>
+      <p>{{{ contents }}}</p>
+    </div>
+    <div slot="pay-attention-to">
+      {{#each pay-attention-to}}
+        <p>{{.}}</p>
+      {{/each}}
+    </div>
+  </vegan-category>
+  <vegan-article-list limit="10" list="{{getCollection collection this}}"></vegan-article-list>
 
   <vegan-footer></vegan-footer>
   {{> setup-bottom}}

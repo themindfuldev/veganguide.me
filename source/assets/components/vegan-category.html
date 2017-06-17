@@ -1,0 +1,110 @@
+<link rel="import" href="../vendors/polymer/polymer-element.html">
+<link rel="import" href="vegan-styles-common.html">
+
+<dom-module id="vegan-category">
+  <template>    
+    <style include="vegan-styles-common"></style>
+    <style>
+      :host {
+        --carousel-height: 378px;
+      }
+
+      section.image {
+        margin: 0 auto;
+        position: relative;
+        height: var(--carousel-height);
+        overflow: hidden;
+      }
+
+      section.image ::slotted(img) {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: relative;
+        display: flex;
+      }
+
+      section.head {
+        background-color: #fafafa;  
+        background: linear-gradient(90deg, #fafafa 75%, #D5E993 25%);      
+      }      
+
+      section.head .head-content {
+        margin: 0 auto;
+        max-width: 1300px;
+        display: flex;
+        justify-content: space-between;        
+        flex-wrap: wrap;
+      }   
+
+      section.head .column {
+        padding: 30px;
+        align-self: stretch;
+      }
+
+      section.head .column.description {
+        flex: 3;
+      }
+
+      section.head .column.pay-attention-to {
+        flex: 1;
+        background-color: #D5E993;
+        display: flex;        
+      }
+
+      section.head .column.pay-attention-to .column-content {
+        align-self: center;
+      }
+
+      section.head .column.pay-attention-to .column-content ::slotted(div) {
+        font-size: 20px;
+      }
+
+      @media only screen and (max-width : 850px) {
+        section.head {
+          background: #fafafa;
+        }
+
+        section.head .column.description {
+          flex: initial;
+          width: 100%; 
+        }
+
+        section.head .column.pay-attention-to {
+          text-align: center;
+        }
+
+        section.head .column.pay-attention-to .column-content {
+          align-self: center;
+          width: 100%;
+        }
+      }
+    </style>
+
+    <section class="image">      
+      <slot name="image"></slot>
+    </section>
+
+    <section class="head">
+      <div class="head-content">
+        <div class="column description">
+          <slot name="description"></slot>        
+        </div>
+
+        <div class="column pay-attention-to">
+          <div class="column-content">
+            <h2>Pay attention to</h2>
+            <slot name="pay-attention-to"></slot>        
+          </div>
+        </div>
+      </div>
+    </section>
+    
+  </template>
+  <script>
+    class VeganCategory extends Polymer.Element {
+      static get is() { return  'vegan-category' }
+    }
+    customElements.define(VeganCategory.is, VeganCategory);
+  </script>
+</dom-module>
