@@ -9,7 +9,7 @@
 
   <vegan-main-image src="/images/{{image}}"></vegan-main-image>
 
-  <vegan-article title="{{ title }}" date="{{ date }}">
+  <vegan-article title="{{ title }}" category="{{getCategory collection this }}" date="{{ date }}">
     <div slot="contents" >
       {{{ contents }}}
     </div>
