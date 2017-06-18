@@ -32,12 +32,12 @@
 
     <div class="content">
       <slot name="header"></slot>
-      <template is="dom-repeat" items="[[pagedList]]">
-        <vegan-article-item date="[[item.date]]" image="[[item.image]]" path="[[item.path]]" title="[[item.title]]">
-          [[item.contents]]
+      <template is="dom-repeat" items="[[ pagedList ]]">
+        <vegan-article-item date="[[ item.date ]]" image="[[ item.image ]]" path="[[ item.path ]]" title="[[ item.title ]]">
+          [[ item.contents ]]
         </vegan-article-item>
       </template>
-      <template is="dom-if" if="[[shouldDisplayLoadMore]]">
+      <template is="dom-if" if="[[ shouldDisplayLoadMore ]]">
         <div class="load-more">
           <button on-click="loadMore">Load More</button>
         </div>

@@ -1,4 +1,5 @@
 <link rel="import" href="../vendors/polymer/polymer-element.html">
+<link rel="import" href="../vendors/polymer/lib/elements/dom-repeat.html">
 <link rel="import" href="vegan-styles-common.html">
 
 <dom-module id="vegan-category">
@@ -72,7 +73,9 @@
         <div class="column pay-attention-to">
           <div class="column-content">
             <h2>Pay attention to</h2>
-            <slot name="pay-attention-to"></slot>        
+            <template is="dom-repeat" items="[[ payAttentionTo ]]">
+              <p>[[ item ]]</p>
+            </template>
           </div>
         </div>
       </div>
@@ -85,7 +88,8 @@
 
        static get properties() {
         return {
-          title: String
+          title: String,
+          payAttentionTo: Array
         }
       }
 
