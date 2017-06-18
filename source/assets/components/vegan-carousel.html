@@ -19,8 +19,14 @@
 
       paper-slide {
         text-align: center;
-        background: #D5E993;
+        background: #fafafa;
       }
+
+      a {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+      }      
 
       img {
         top: 50%;
@@ -38,7 +44,7 @@
 
       @media only screen and (max-width : 768px) {
         section {
-          background: #D5E993;
+          background: #fafafa;
         }
 
         l2t-paper-slider {
@@ -74,13 +80,18 @@
     </style>
 
     <section>     
-      <l2t-paper-slider auto-progress slide-duration="3" total-slides="3">
-        <paper-slide><img src="/images/banner01.jpg" draggable="false"/></paper-slide>
-        <paper-slide><img src="/images/banner02.jpg" draggable="false"/></paper-slide>
-        <paper-slide><img src="/images/banner03.jpg" draggable="false"/></paper-slide>
+      <l2t-paper-slider auto-progress slide-duration="3" total-slides="8">
+        <paper-slide><img src="/images/banner-index.jpg" draggable="false"/></paper-slide>
+        <paper-slide><a class="apparel" href="/apparel/" aria-label="Apparel" data-tooltip="Apparel"><img src="/images/banner-apparel.jpg" draggable="false"/></a></paper-slide>
+        <paper-slide><a class="personal-care" href="/personal-care/" aria-label="Personal Care" data-tooltip="Personal Care"><img src="/images/banner-personal-care.jpg" draggable="false"/></a></paper-slide>
+        <paper-slide><a class="home" href="/home/" aria-label="Home" data-tooltip="Home"><img src="/images/banner-home.jpg" draggable="false"/></a></paper-slide>
+        <paper-slide><a class="eating" href="/eating/" aria-label="Eating" data-tooltip="Eating"><img src="/images/banner-eating.jpg" draggable="false"/></a></paper-slide>
+        <paper-slide><a class="drinking" href="/drinking/" aria-label="Drinking" data-tooltip="Drinking"><img src="/images/banner-drinking.jpg" draggable="false"/></a></paper-slide>
+        <paper-slide><a class="pets" href="/pets/" aria-label="Pets" data-tooltip="Pets"><img src="/images/banner-pets.jpg" draggable="false"/></a></paper-slide>
+        <paper-slide><a class="pro-tips" href="/pro-tips/" aria-label="Pro Tips" data-tooltip="Pro Tips"><img src="/images/banner-pro-tips.jpg" draggable="false"/></a></paper-slide>
       </l2t-paper-slider>
       <div class="single-image">
-        <img src="/images/banner01.jpg" draggable="false"/>
+        <img src="/images/banner-index.jpg" draggable="false"/>
       </div>
     </section>
     
