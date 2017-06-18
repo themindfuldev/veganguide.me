@@ -4,7 +4,7 @@
   "description": "veganguide.me source code",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "deploy": "git add public; git commit -m 'Regenerate site'; git subtree push --prefix public origin gh-pages;"
   },
   "repository": {
     "type": "git",
