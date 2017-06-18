@@ -4,5 +4,5 @@ veganguide.me source code
 ```
 npm install
 bower install
-node index.js
+node index
 ```

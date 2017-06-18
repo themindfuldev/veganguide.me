@@ -19,6 +19,7 @@
   "dependencies": {
     "fs-extra": "^3.0.1",
     "metalsmith": "^2.3.0",
+    "metalsmith-assets": "^0.1.0",
     "metalsmith-collections": "^0.9.0",
     "metalsmith-discover-helpers": "^0.1.0",
     "metalsmith-discover-partials": "^0.1.0",
