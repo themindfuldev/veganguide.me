@@ -8,6 +8,7 @@ pay-attention-to:
 - Leather
 - Suede
 - Wool
+- Fur
 - Silk
 - Animal glues
 ---

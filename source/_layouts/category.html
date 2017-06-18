@@ -5,7 +5,7 @@
 </head>
 <body>
   {{> setup-top}}
-  {{> setup-category}}
+
   <vegan-header></vegan-header>
 
   <vegan-main-image src="/images/{{ image }}"></vegan-main-image>
@@ -16,7 +16,7 @@
     </div>
   </vegan-category>
 
-  <vegan-article-list limit="10" list="{{ getCollectionList collection this }}"></vegan-article-list>
+  <vegan-article-list limit="10" list="{{ getCollectionList this }}"></vegan-article-list>
 
   <vegan-footer></vegan-footer>
   {{> setup-bottom}}

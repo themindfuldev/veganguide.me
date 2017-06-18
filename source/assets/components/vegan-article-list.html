@@ -9,7 +9,7 @@
     <style include="vegan-styles-common"></style>    
     <style>
       .content {
-        padding: 30px;
+        padding: var(--vegan-article-list-padding, 30px);
         position: relative;
         max-width: 1240px;
         margin: 0 auto;
@@ -27,6 +27,7 @@
         text-transform: uppercase;
         padding: 10px 20px;
         border: 0;
+        cursor: pointer;
       }
     </style>   
 
@@ -38,7 +39,7 @@
         </vegan-article-item>
       </template>
       <template is="dom-if" if="[[ shouldDisplayLoadMore ]]">
-        <div class="load-more">
+        <div class="load-more">          
           <button on-click="loadMore">Load More</button>
         </div>
       </template>

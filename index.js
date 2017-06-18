@@ -68,6 +68,11 @@ Metalsmith(__dirname)
     Object.keys(files).forEach(function(file){
       var data = files[file];
       data.rawContents = data.contents;
+      if (data.collection) {
+        data.category = data.collection.find(collection => {
+          return collection !== 'articles';
+        });
+      }
     });
   })
   .use(markdown())
