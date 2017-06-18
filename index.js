@@ -45,7 +45,7 @@ Metalsmith(__dirname)
   .destination('./public')
   .clean(true)
   .use(collections({
-    articles: ['**/*.md', '!*.md'],    
+    articles: ['**/*.md', '!index.md'],    
     settings: {
       sortBy: 'date',
       reverse: true
