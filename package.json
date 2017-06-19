@@ -4,6 +4,7 @@
   "description": "veganguide.me source code",
   "main": "index.js",
   "scripts": {
+    "start": "node index",
     "deploy": "git add public; git commit -m 'Regenerate site'; git subtree push --prefix public origin gh-pages;"
   },
   "repository": {
@@ -27,7 +28,6 @@
     "metalsmith-permalinks": "^0.5.0",
     "metalsmith-serve": "0.0.7",
     "metalsmith-templates": "^0.7.0",
-    "metalsmith-watch": "^1.0.3",
     "metalsmith-writemetadata": "^0.4.5"
   },
   "devDependencies": {

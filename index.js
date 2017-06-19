@@ -8,13 +8,12 @@ const partials     = require('metalsmith-discover-partials');
 const helpers      = require('metalsmith-discover-helpers');
 const templates    = require('metalsmith-templates');
 const serve        = require('metalsmith-serve');
-const watch        = require('metalsmith-watch');
 const console      = require('console');
 const exec         = require('child_process').exec;
 const fs           = require('fs-extra');
 
 const buildPolymer = () => {
-  console.info('building polymer...');
+  console.info('Polymer is building web components...');
   exec("cd public; polymer build --js-compile --js-minify --html-minify --css-minify", (error, stdout, stderr) => {
     if (error) {
       console.error(`exec error: ${error}`);
@@ -29,9 +28,8 @@ const buildPolymer = () => {
     fs.moveSync('public/build/default/vendors/iron-a11y-keys-behavior', 'public/vendors/iron-a11y-keys-behavior', { overwrite: true });
     fs.moveSync('public/build/default/vendors/fetch', 'public/vendors/fetch', { overwrite: true });
     fs.removeSync('public/build');
-    console.info('Site build complete!');
 
-    exec(`osascript -e 'display notification "Site build complete" with title "Metalsmith"'`);
+    exec(`osascript -e 'display notification "Build complete!" with title "Metalsmith"'`);
   });
 };
 
@@ -96,10 +94,6 @@ Metalsmith(__dirname)
   .use(serve({
     port: 8080,
     verbose: true
-  }))
-  .use(watch({
-    pattern: '**/*',
-    livereload: true
   }))
   .build(err => {
     if (err) {
