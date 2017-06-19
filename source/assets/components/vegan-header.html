@@ -24,6 +24,10 @@
         margin-right: 30px;
       }
 
+      .logo-mobile {
+        display: none;
+      }
+
       .header-content {
         display: flex;
         flex-wrap: wrap;
@@ -80,17 +84,18 @@
         }
 
         .header-content {
-          order: 1;
           width: 100%;
           padding: 15px 30px 30px;
         }
 
         .logo {
-          order: 2;
-          width: 100%;
+          display: none;
+        }
+
+        .logo-mobile {
+          display: block;
           text-align: center;
           background: #D5E993;          
-          margin-right: 0;
           padding: 30px;
         }
 
@@ -174,11 +179,14 @@
           <a class="pro-tips" href="/pro-tips/" aria-label="Pro Tips" data-tooltip="Pro Tips"><i class="fa fa-thumbs-up fa-2x" aria-hidden="true"></i></a>
         </nav>
         <div class="search">
-          <vegan-search search-query="{{searchQuery}}" search-results="{{searchResults}}"></vegan-search>
+          <vegan-search search-query="{{ searchQuery }}" search-results="{{ searchResults }}"></vegan-search>
         </div>
       </div>
     </header>
-    <vegan-search-results search-query="{{searchQuery}}" search-results="{{searchResults}}"></vegan-search-results>
+    <vegan-search-results search-query="{{ searchQuery }}" search-results="{{ searchResults }}"></vegan-search-results>
+    <div class="logo-mobile">
+      <a href="/"><img src="/images/logo.png" alt="VeganGuide.Me" title="VeganGuide.Me" draggable="false"/></a>
+    </div>
     
   </template>
   <script>
