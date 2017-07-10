@@ -7,9 +7,9 @@ image: banner-about.jpg
 
 Hello, friends!  
 
-We are the family behind The Vegan Guide . Me.  
+We are the family behind VeganGuide.Me.  
 
-[Cintia](http://cintiaromero.com) and [Tiago](http://tiagorg.com), animals lovers, and mommy and daddy of Sherlock, a wonderful dog that teaches us everyday what love is and reinforces that every animal is special in tons of ways.  
+[Cintia](http://cintiaromero.com) and [Tiago](http://tiagorg.com), animal lovers, and mommy and daddy of Sherlock, a wonderful dog that teaches us everyday what love is and reinforces that every animal is special in tons of ways.  
 
 This vegan guide was designed and coded by us, our way to help saving animals lives through sharing knowledge, tips and guiding your vegan shopping experience, featuring a blazing-fast search bar.  
 
