@@ -5,20 +5,20 @@
 </head>
 <body>
   {{> setup-top}}
-
+  {{> setup-category}}
+  
   <vegan-header></vegan-header>
 
   <vegan-main-image src="/images/{{ image }}"></vegan-main-image>
-
   <vegan-category title="{{ title }}" pay-attention-to="{{ stringify pay-attention-to }}">
     <div slot="contents">
       {{{ contents }}}
     </div>
   </vegan-category>
-
   <vegan-article-list limit="10" list="{{ getCollectionList this }}"></vegan-article-list>
 
   <vegan-footer></vegan-footer>
+
   {{> setup-bottom}}
 </body>
 </html>

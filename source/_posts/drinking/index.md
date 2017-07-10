@@ -8,7 +8,7 @@ pay-attention-to:
 - Dairy
 - Honey
 - Gelatin
-- Isengard (fish bladder)
+- Isinglass (fish bladder)
 - Egg whites
 - Sea shells
 ---

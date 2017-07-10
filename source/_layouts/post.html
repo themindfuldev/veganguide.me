@@ -5,10 +5,11 @@
 </head>
 <body>
   {{> setup-top}}
+  {{> setup-post}}  
+
   <vegan-header></vegan-header>
 
   <vegan-main-image src="/images/{{ image }}"></vegan-main-image>
-
   <vegan-article title="{{ title }}" category="{{ category }}" date="{{ date }}" related-articles="{{ getCollectionList this true }}">
     <div slot="contents" >
       {{{ contents }}}
@@ -16,6 +17,7 @@
   </vegan-article>
  
   <vegan-footer></vegan-footer>
+  
   {{> setup-bottom}}
 </body>
 </html>

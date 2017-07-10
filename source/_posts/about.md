@@ -5,10 +5,13 @@ template: post.html
 image: banner-about.jpg
 ---
 
-An interesting post about how it's going to be different this time around. I'm going write a lot more nowadays and use this blog to improve my writing.
+Hello, friends!  
 
-An interesting post about how it's going to be different this time around. I'm going write a lot more nowadays and use this blog to improve my writing.
+We are the family behind The Vegan Guide . Me.  
+Cintia and Tiago, animals lovers and mommy and daddy of Sherlock, a dog that teaches us everyday what is love and reinforces that every animal is special in tons of ways.  
+This vegan guide was designed and coded by us, our way to help saving animals lives through sharing knowledge, tips and guiding the vegan shopping experience.  
+Being vegan is not as difficult as it appears to be. We want to help you with that.  
+You will find articles about brands, products, services and much more.  
 
-An interesting post about how it's going to be different this time around. I'm going write a lot more nowadays and use this blog to improve my writing.
-
-An interesting post about how it's going to be different this time around. I'm going write a lot more nowadays and use this blog to improve my writing..
+Veganism is about love, and we shouldn’t be afraid to talk about it. 
+Let’s share experience and fight for the ones that can can’t fight alone.
