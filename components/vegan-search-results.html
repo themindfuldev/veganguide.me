@@ -1,1 +1,87 @@
-<html><head><link rel="import" href="../vendors/polymer/polymer-element.html"><link rel="import" href="../vendors/polymer/lib/elements/dom-if.html"><link rel="import" href="vegan-article-list.html"><link rel="import" href="vegan-styles-common.html"></head><body><dom-module id="vegan-search-results"><template><link type="text/css" rel="stylesheet" href="https://use.fontawesome.com/ac44d0f306.css"><style include="vegan-styles-common"></style><style>section{width:100%;background-color:#fafafa;}.icon{position:absolute;right:30px;top:25px;}.icon i.fa{color:#1BAF0F;}h3.message{margin-top:0;}vegan-article-list{padding:30px;}</style><template is="dom-if" if="{{ searchResults.message }}"><section><vegan-article-list limit="5" list="{{ searchResults.articles }}"><div slot="header"><a href="javascript:void(0)" class="icon" on-click="clearSearch"><i class="fa fa-times-circle fa-2x" aria-hidden="true"></i></a><h3 class="message">{{ searchResults.message }}</h3></div></vegan-article-list></section></template></template><script>var _createClass=function(){function a(b,c){for(var f,d=0;d<c.length;d++)f=c[d],f.enumerable=f.enumerable||!1,f.configurable=!0,"value"in f&&(f.writable=!0),Object.defineProperty(b,f.key,f)}return function(b,c,d){return c&&a(b.prototype,c),d&&a(b,d),b}}();function _classCallCheck(a,b){if(!(a instanceof b))throw new TypeError("Cannot call a class as a function")}function _possibleConstructorReturn(a,b){if(!a)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return b&&("object"==typeof b||"function"==typeof b)?b:a}function _inherits(a,b){if("function"!=typeof b&&null!==b)throw new TypeError("Super expression must either be null or a function, not "+typeof b);a.prototype=Object.create(b&&b.prototype,{constructor:{value:a,enumerable:!1,writable:!0,configurable:!0}}),b&&(Object.setPrototypeOf?Object.setPrototypeOf(a,b):a.__proto__=b)}var VeganSearchResults=function(a){function b(){return _classCallCheck(this,b),_possibleConstructorReturn(this,(b.__proto__||Object.getPrototypeOf(b)).apply(this,arguments))}return _inherits(b,a),_createClass(b,[{key:"clearSearch",value:function(){this.set("searchQuery",""),this.set("searchResults.message",""),this.set("searchResults.articles",[])}}],[{key:"is",get:function(){return"vegan-search-results"}},{key:"properties",get:function(){return{searchQuery:{type:String,notify:!0},searchResults:{type:Object,notify:!0}}}}]),b}(Polymer.Element);customElements.define(VeganSearchResults.is,VeganSearchResults);</script></dom-module></body></html>
+<link rel="import" href="../vendors/polymer/polymer-element.html">
+<link rel="import" href="../vendors/polymer/lib/elements/dom-if.html">
+<link rel="import" href="vegan-article-list.html">
+<link rel="import" href="vegan-styles-common.html">
+
+<dom-module id="vegan-search-results">
+  <template>    
+    <link type="text/css" rel="stylesheet" href="https://use.fontawesome.com/ac44d0f306.css">
+    <style include="vegan-styles-common"></style>   
+    <style>   
+      section {
+        width: 100%;
+        background-color: #fafafa;
+      }
+
+      .icon {
+        position: absolute;
+        right: 30px;
+        top: 25px;
+      }
+
+      .icon i.fa {
+        color: #1BAF0F;
+      }
+
+      h3.message {
+        margin-top: 0;
+      }
+
+      vegan-article-list {
+        padding: 30px;
+      }
+    </style>
+
+    <template is="dom-if" if="{{ searchResults.message }}">
+      <section>
+        <vegan-article-list limit="5" list="{{ searchResults.articles }}">
+          <div slot="header">
+            <a href="javascript:void(0)" class="icon" on-click="clearSearch">
+              <i class="fa fa-times-circle fa-2x" aria-hidden="true"></i>
+            </a>
+            <h3 class="message">{{ searchResults.message }}</h3>
+          </div>
+        </vegan-article-list>
+      </section>    
+    </template>    
+  </template>
+  <script>var VeganSearchResults = function (_Polymer$Element) {
+  babelHelpers.inherits(VeganSearchResults, _Polymer$Element);
+
+  function VeganSearchResults() {
+    babelHelpers.classCallCheck(this, VeganSearchResults);
+    return babelHelpers.possibleConstructorReturn(this, (VeganSearchResults.__proto__ || Object.getPrototypeOf(VeganSearchResults)).apply(this, arguments));
+  }
+
+  babelHelpers.createClass(VeganSearchResults, [{
+    key: 'clearSearch',
+    value: function clearSearch(e) {
+      this.set('searchQuery', '');
+      this.set('searchResults.message', '');
+      this.set('searchResults.articles', []);
+    }
+  }], [{
+    key: 'is',
+    get: function get() {
+      return 'vegan-search-results';
+    }
+  }, {
+    key: 'properties',
+    get: function get() {
+      return {
+        searchQuery: {
+          type: String,
+          notify: true
+        },
+        searchResults: {
+          type: Object,
+          notify: true
+        }
+      };
+    }
+  }]);
+  return VeganSearchResults;
+}(Polymer.Element);
+
+customElements.define(VeganSearchResults.is, VeganSearchResults);</script>
+</dom-module>

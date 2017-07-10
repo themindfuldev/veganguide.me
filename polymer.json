@@ -1,0 +1,21 @@
+{
+  "entrypoint": "index.html",
+  "fragments": [    
+  ],
+  "sources": [
+   "components/**/*",
+   "css/**/*"
+  ],
+  "extraDependencies": [    
+    "vendors/webcomponentsjs/custom-elements-es5-adapter.js"
+  ],
+  "lint": {
+    "rules": ["polymer-2-hybrid"]
+  },
+  "builds": [{
+    "bundle": false,
+    "js": {"minify": false, "compile": true},
+    "css": {"minify": false},
+    "html": {"minify": false}
+  }]
+}
