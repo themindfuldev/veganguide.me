@@ -1,1 +1,67 @@
-<html><head><link rel="import" href="../utils/boot.html"><link rel="import" href="../utils/gestures.html"><script>var _createClass=function(){function a(b,c){for(var e,d=0;d<c.length;d++)e=c[d],e.enumerable=e.enumerable||!1,e.configurable=!0,"value"in e&&(e.writable=!0),Object.defineProperty(b,e.key,e)}return function(b,c,d){return c&&a(b.prototype,c),d&&a(b,d),b}}(),_get=function a(b,c,d){null===b&&(b=Function.prototype);var e=Object.getOwnPropertyDescriptor(b,c);if(e===void 0){var f=Object.getPrototypeOf(b);return null===f?void 0:a(f,c,d)}if("value"in e)return e.value;var g=e.get;return void 0===g?void 0:g.call(d)};function _classCallCheck(a,b){if(!(a instanceof b))throw new TypeError("Cannot call a class as a function")}function _possibleConstructorReturn(a,b){if(!a)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return b&&("object"==typeof b||"function"==typeof b)?b:a}function _inherits(a,b){if("function"!=typeof b&&null!==b)throw new TypeError("Super expression must either be null or a function, not "+typeof b);a.prototype=Object.create(b&&b.prototype,{constructor:{value:a,enumerable:!1,writable:!0,configurable:!0}}),b&&(Object.setPrototypeOf?Object.setPrototypeOf(a,b):a.__proto__=b)}(function(){"use strict";var a=Polymer.Gestures;Polymer.GestureEventListeners=Polymer.dedupingMixin(function(b){var c=function(d){function e(){return _classCallCheck(this,e),_possibleConstructorReturn(this,(e.__proto__||Object.getPrototypeOf(e)).apply(this,arguments))}return _inherits(e,d),_createClass(e,[{key:"_addEventListenerToNode",value:function(g,h,j){a.addListener(g,h,j)||_get(e.prototype.__proto__||Object.getPrototypeOf(e.prototype),"_addEventListenerToNode",this).call(this,g,h,j)}},{key:"_removeEventListenerFromNode",value:function(g,h,j){a.removeListener(g,h,j)||_get(e.prototype.__proto__||Object.getPrototypeOf(e.prototype),"_removeEventListenerFromNode",this).call(this,g,h,j)}}]),e}(b);return c})})();</script></head><body></body></html>
+<!--
+@license
+Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+--><link rel="import" href="../utils/boot.html">
+<link rel="import" href="../utils/gestures.html">
+
+<script>
+(function () {
+
+  'use strict';
+
+  var gestures = Polymer.Gestures;
+
+  /**
+   * Element class mixin that provides API for adding Polymer's cross-platform
+   * gesture events to nodes.
+   *
+   * The API is designed to be compatible with override points implemented
+   * in `Polymer.TemplateStamp` such that declarative event listeners in
+   * templates will support gesture events when this mixin is applied along with
+   * `Polymer.TemplateStamp`.
+   *
+   * @polymerMixin
+   * @memberof Polymer
+   * @summary Element class mixin that provides API for adding Polymer's cross-platform
+   * gesture events to nodes
+   */
+  Polymer.GestureEventListeners = Polymer.dedupingMixin(function (superClass) {
+
+    /**
+     * @polymerMixinClass
+     * @implements {Polymer_GestureEventListeners}
+     */
+    var GestureEventListeners = function (_superClass) {
+      babelHelpers.inherits(GestureEventListeners, _superClass);
+
+      function GestureEventListeners() {
+        babelHelpers.classCallCheck(this, GestureEventListeners);
+        return babelHelpers.possibleConstructorReturn(this, (GestureEventListeners.__proto__ || Object.getPrototypeOf(GestureEventListeners)).apply(this, arguments));
+      }
+
+      babelHelpers.createClass(GestureEventListeners, [{
+        key: '_addEventListenerToNode',
+        value: function _addEventListenerToNode(node, eventName, handler) {
+          if (!gestures.addListener(node, eventName, handler)) {
+            babelHelpers.get(GestureEventListeners.prototype.__proto__ || Object.getPrototypeOf(GestureEventListeners.prototype), '_addEventListenerToNode', this).call(this, node, eventName, handler);
+          }
+        }
+      }, {
+        key: '_removeEventListenerFromNode',
+        value: function _removeEventListenerFromNode(node, eventName, handler) {
+          if (!gestures.removeListener(node, eventName, handler)) {
+            babelHelpers.get(GestureEventListeners.prototype.__proto__ || Object.getPrototypeOf(GestureEventListeners.prototype), '_removeEventListenerFromNode', this).call(this, node, eventName, handler);
+          }
+        }
+      }]);
+      return GestureEventListeners;
+    }(superClass);
+
+    return GestureEventListeners;
+  });
+})();</script>

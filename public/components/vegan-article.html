@@ -1,1 +1,96 @@
-<html><head><link rel="import" href="../vendors/polymer/polymer-element.html"><link rel="import" href="../vendors/polymer/lib/elements/dom-if.html"><link rel="import" href="vegan-article-list.html"><link rel="import" href="vegan-styles-common.html"></head><body><dom-module id="vegan-article"><template><style include="vegan-styles-common"></style><style>section.content{padding:30px;position:relative;max-width:1240px;margin:0 auto;}h1{margin-top:10px;}h3.message{margin-top:0;}vegan-article-list{--vegan-article-list-padding:30px 0;}</style><section class="content"><template is="dom-if" if="[[ category ]]"><div><a href="/[[ category ]]/">[[ formattedCategory ]]</a></div></template><h1>[[ title ]]</h1><time>[[ formattedDate ]]</time><slot name="contents"></slot><template is="dom-if" if="[[ category ]]"><vegan-article-list limit="3" list="[[ relatedArticles ]]"><div slot="header"><h3 class="message">More articles in <a href="/[[ category ]]/">[[ formattedCategory ]]</a></h3></div></vegan-article-list></template></section></template><script>var _createClass=function(){function a(b,c){for(var e,d=0;d<c.length;d++)e=c[d],e.enumerable=e.enumerable||!1,e.configurable=!0,"value"in e&&(e.writable=!0),Object.defineProperty(b,e.key,e)}return function(b,c,d){return c&&a(b.prototype,c),d&&a(b,d),b}}();function _classCallCheck(a,b){if(!(a instanceof b))throw new TypeError("Cannot call a class as a function")}function _possibleConstructorReturn(a,b){if(!a)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return b&&("object"==typeof b||"function"==typeof b)?b:a}function _inherits(a,b){if("function"!=typeof b&&null!==b)throw new TypeError("Super expression must either be null or a function, not "+typeof b);a.prototype=Object.create(b&&b.prototype,{constructor:{value:a,enumerable:!1,writable:!0,configurable:!0}}),b&&(Object.setPrototypeOf?Object.setPrototypeOf(a,b):a.__proto__=b)}var VeganArticle=function(a){function b(){return _classCallCheck(this,b),_possibleConstructorReturn(this,(b.__proto__||Object.getPrototypeOf(b)).apply(this,arguments))}return _inherits(b,a),_createClass(b,[{key:"formatDate",value:function(d){var e=new Date(d).toDateString().split(" ");return e[0]+", "+e[1]+" "+e[2]+", "+e[3]}},{key:"formatCategory",value:function(d){return d.split("-").map(function(e){return e.charAt(0).toUpperCase()+e.slice(1).toLowerCase()}).join(" ")}}],[{key:"is",get:function(){return"vegan-article"}},{key:"properties",get:function(){return{title:String,category:String,formattedCategory:{type:String,computed:"formatCategory(category)"},date:String,formattedDate:{type:String,computed:"formatDate(date)"},relatedArticles:Array}}}]),b}(Polymer.Element);customElements.define(VeganArticle.is,VeganArticle);</script></dom-module></body></html>
+<link rel="import" href="../vendors/polymer/polymer-element.html">
+<link rel="import" href="../vendors/polymer/lib/elements/dom-if.html">
+<link rel="import" href="vegan-article-list.html">
+<link rel="import" href="vegan-styles-common.html">
+
+<dom-module id="vegan-article">
+  <template>    
+    <style include="vegan-styles-common"></style>
+    <style>
+      section.content {
+        padding: 30px;
+        position: relative;
+        max-width: 1240px;
+        margin: 0 auto;
+      }   
+
+      h1 {
+        margin-top: 10px;
+      }
+
+      h3.message {
+        margin-top: 0;
+      }
+
+      vegan-article-list {
+        --vegan-article-list-padding: 30px 0;
+      }
+    </style>
+
+    <section class="content">
+      <template is="dom-if" if="[[ category ]]">
+        <div><a href="/[[ category ]]/">[[ formattedCategory ]]</a></div>
+      </template>
+      <h1>[[ title ]]</h1>
+      <time>[[ formattedDate ]]</time>
+      <slot name="contents"></slot>
+      <template is="dom-if" if="[[ category ]]">
+        <vegan-article-list limit="3" list="[[ relatedArticles ]]">
+          <div slot="header">
+            <h3 class="message">More articles in <a href="/[[ category ]]/">[[ formattedCategory ]]</a></h3>
+          </div>
+        </vegan-article-list>
+      </template>
+    </section>
+    
+  </template>
+  <script>var VeganArticle = function (_Polymer$Element) {
+  babelHelpers.inherits(VeganArticle, _Polymer$Element);
+
+  function VeganArticle() {
+    babelHelpers.classCallCheck(this, VeganArticle);
+    return babelHelpers.possibleConstructorReturn(this, (VeganArticle.__proto__ || Object.getPrototypeOf(VeganArticle)).apply(this, arguments));
+  }
+
+  babelHelpers.createClass(VeganArticle, [{
+    key: 'formatDate',
+    value: function formatDate(date) {
+      var dateComponents = new Date(date).toDateString().split(' ');
+      return dateComponents[0] + ', ' + dateComponents[1] + ' ' + dateComponents[2] + ', ' + dateComponents[3];
+    }
+  }, {
+    key: 'formatCategory',
+    value: function formatCategory(category) {
+      return category.split('-').map(function (word) {
+        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+      }).join(' ');
+    }
+  }], [{
+    key: 'is',
+    get: function get() {
+      return 'vegan-article';
+    }
+  }, {
+    key: 'properties',
+    get: function get() {
+      return {
+        title: String,
+        category: String,
+        formattedCategory: {
+          type: String,
+          computed: 'formatCategory(category)'
+        },
+        date: String,
+        formattedDate: {
+          type: String,
+          computed: 'formatDate(date)'
+        },
+        relatedArticles: Array
+      };
+    }
+  }]);
+  return VeganArticle;
+}(Polymer.Element);
+
+customElements.define(VeganArticle.is, VeganArticle);</script>
+</dom-module>

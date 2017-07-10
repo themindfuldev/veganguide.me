@@ -31,6 +31,6 @@
     "metalsmith-writemetadata": "^0.4.5"
   },
   "devDependencies": {
-    "babel-preset-env": "^1.4.0"
-  }
+    "babel-preset-env": "^1.6.0"
+  }  
 }

@@ -14,7 +14,7 @@ const fs           = require('fs-extra');
 
 const buildPolymer = () => {
   console.info('Polymer is building web components...');
-  exec("cd public; polymer build --js-compile --js-minify --html-minify --css-minify", (error, stdout, stderr) => {
+  exec("cd public; polymer build", (error, stdout, stderr) => {
     if (error) {
       console.error(`exec error: ${error}`);
       exec(`osascript -e 'display notification "Error: ${error}" with title "Metalsmith"'`);
