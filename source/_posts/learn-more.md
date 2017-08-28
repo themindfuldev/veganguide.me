@@ -1,6 +1,6 @@
 ---
 title: Learn More
-date: 2017-06-05
+date: 2017-08-27
 template: post.html
 image: banner-learn-more.jpg
 ---
