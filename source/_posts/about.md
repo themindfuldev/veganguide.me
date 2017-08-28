@@ -17,8 +17,12 @@ Being vegan is not as difficult as it appears to be. We want to help you with th
 
 Here you will find articles about vegan brands, products, ingredients, services and much more.  
 
-Veganism is about love, and we shouldn’t be afraid to talk about it. 
+Becoming Vegan is the single largest step we can take to eliminate animal suffering, and besides, eliminating your consumption on meat, eggs, and dairy products, helps to protect our environment and reduce pollution.  
 
-Let’s share experience and fight for the ones that can can’t fight alone.
+Raising animals for food, milk or eggs (even organic and free-range) is an assault on the Earth and an inefficient use of resources.  
+
+Let’s share our experience and fight for the ones that can can’t fight alone.
+
+Go green, go vegan!
 
 NOTE: at this moment, this site is still being built. The coding is all done, we're now working on the content. If you would like to help us out, we would really appreciate it. In that case, get in touch with us on [veganguideme@gmail.com](mailto:veganguideme@gmail.com)

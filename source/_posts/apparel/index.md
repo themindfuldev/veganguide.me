@@ -11,10 +11,19 @@ pay-attention-to:
 - Fur
 - Silk
 - Animal glues
+- Ivory
+- Bones
+- Down
 ---
 
-An interesting post about how it's going to be different this time around. I'm going write a lot more nowadays and use this blog to improve my writing. An interesting post about how it's going to be different this time around. I'm going write a lot more nowadays and use this blog to improve my writing. 
+Buying vegan products sometimes can be tricky.  
+Animal ingredients can be hiding in the details of your clothing without your knowlege.  
+Always check those details: 
 
-An interesting post about how it's going to be different this time around. I'm going write a lot more nowadays and use this blog to improve my writing. An interesting post about how it's going to be different this time around. I'm going write a lot more nowadays and use this blog to improve my writing. 
-
-An interesting post about how it's going to be different this time around. I'm going write a lot more nowadays and use this blog to improve my writing.
+- Buttons 
+- Labels 
+- Zipper  
+- Linners 
+- Insoles 
+- Cases 
+- Toggle
